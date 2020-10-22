@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".GlobalApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,7 +16,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".CreateFeed.CreateFeedActivity" />
+        <activity android:name=".CreateLocation.CreateLocationActivity" />
+        <activity android:name=".CreateText.CreateTextActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OnBoardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SelectActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,7 +44,7 @@
                 <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth“ -->
                 <data
                     android:host="oauth"
-                    android:scheme="kakaod66f03b9620226301893094e59ff9023" />
+                    android:scheme="kakao09e3d1820f567497aa373758a4bf09ed" />
             </intent-filter>
         </activity>
     </application>

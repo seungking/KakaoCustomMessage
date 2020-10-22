@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/kakaoSky"
+    tools:context=".CreateText.TextPreviewFragment">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorTrans"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/sectionText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorTrans">
+
+                <TextView
+                    android:id="@+id/TextTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="메시지 내용"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/divTextTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@android:color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/TextTxt" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/sectionTextBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divTextTxt">
+
+                    <TextView
+                        android:id="@+id/TextBodyText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:padding="5dp"
+                        android:text="내용"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintBottom_toTopOf="@+id/txtEditTextBody"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/validateTxtTextBody"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:text="2줄까지 가능합니다"
+                        android:textColor="@android:color/black"
+                        android:textSize="12dp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="@+id/TextBodyText"
+                        app:layout_constraintStart_toEndOf="@+id/TextBodyText"
+                        app:layout_constraintTop_toTopOf="@+id/TextBodyText" />
+
+                    <EditText
+                        android:id="@+id/txtEditTextBody"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:background="@drawable/cornersbutton"
+                        android:hint="example@TextBody.com"
+                        android:lines="3"
+                        android:maxLines="1"
+                        android:padding="5dp"
+                        android:textSize="15dp"
+                        app:layout_constraintBottom_toTopOf="@+id/TextWarning1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/TextBodyText" />
+
+                    <TextView
+                        android:id="@+id/TextWarning1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="- 대문자+소문자+숫자 소합으로 입력해 주세요."
+                        android:textColor="@color/kakaoUnSelect"
+                        app:layout_constraintBottom_toTopOf="@+id/TextWarning2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtEditTextBody" />
+
+
+                    <TextView
+                        android:id="@+id/TextWarning2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="- 8자 이상으로 입력해 주세요."
+                        android:textColor="@color/kakaoUnSelect"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/TextWarning1" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/sectionButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorTrans">
+
+                <TextView
+                    android:id="@+id/ButtonTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="메시지 내용"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/divBodyTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@android:color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ButtonTxt" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/sectionBodyBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divBodyTxt">
+
+                    <TextView
+                        android:id="@+id/BodyBodyText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:padding="5dp"
+                        android:text="내용"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintBottom_toTopOf="@+id/txtEditTextBodyBody"
+                        app:layout_constraintStart_toEndOf="@+id/checkboxButton1"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/validateTxtBodyBody"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:text="2줄까지 가능합니다"
+                        android:textColor="@android:color/black"
+                        android:textSize="12dp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="@+id/BodyBodyText"
+                        app:layout_constraintStart_toEndOf="@+id/BodyBodyText"
+                        app:layout_constraintTop_toTopOf="@+id/BodyBodyText" />
+
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/checkboxButton1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@+id/txtEditTextBodyBody"
+                        app:layout_constraintStart_toStartOf="@+id/txtEditTextBodyBody"
+
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/txtEditTextBodyBody"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:background="@drawable/cornersbutton"
+                        android:hint="example@TextBody.com"
+                        android:lines="2"
+                        android:maxLines="1"
+                        android:padding="5dp"
+                        android:textSize="15dp"
+                        app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/BodyBodyText" />
+
+                    <TextView
+                        android:id="@+id/bodyTextWarning1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="- 대문자+소문자+숫자 소합으로 입력해 주세요."
+                        android:textColor="@color/kakaoUnSelect"
+                        app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtEditTextBodyBody" />
+
+
+                    <TextView
+                        android:id="@+id/bodyTextWarning2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="- 8자 이상으로 입력해 주세요."
+                        android:textColor="@color/kakaoUnSelect"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/bodyTextWarning1" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/sectionBodyBody1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sectionBodyBody">
+
+                    <TextView
+                        android:id="@+id/BodyBodyText1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:padding="5dp"
+                        android:text="내용"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintBottom_toTopOf="@+id/txtEditTextBodyBody1"
+                        app:layout_constraintStart_toEndOf="@+id/checkboxButton11"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/validateTxtBodyBody1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:text="2줄까지 가능합니다"
+                        android:textColor="@android:color/black"
+                        android:textSize="12dp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="@+id/BodyBodyText1"
+                        app:layout_constraintStart_toEndOf="@+id/BodyBodyText1"
+                        app:layout_constraintTop_toTopOf="@+id/BodyBodyText1" />
+
+
+                    <androidx.appcompat.widget.AppCompatCheckBox
+                        android:id="@+id/checkboxButton11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@+id/txtEditTextBodyBody1"
+                        app:layout_constraintStart_toStartOf="@+id/txtEditTextBodyBody1"
+
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/txtEditTextBodyBody1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:background="@drawable/cornersbutton"
+                        android:hint="example@TextBody.com"
+                        android:lines="2"
+                        android:maxLines="1"
+                        android:padding="5dp"
+                        android:textSize="15dp"
+                        app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning11"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/BodyBodyText1" />
+
+                    <TextView
+                        android:id="@+id/bodyTextWarning11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="- 대문자+소문자+숫자 소합으로 입력해 주세요."
+                        android:textColor="@color/kakaoUnSelect"
+                        app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning12"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtEditTextBodyBody1" />
+
+
+                    <TextView
+                        android:id="@+id/bodyTextWarning12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="- 8자 이상으로 입력해 주세요."
+                        android:textColor="@color/kakaoUnSelect"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/bodyTextWarning11" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
