@@ -35,6 +35,13 @@ class TextParamFragment : Fragment() {
         val checkboxButton1 = mview?.findViewById<CheckBox>(R.id.checkboxButton1)
         checkboxButton1?.setOnClickListener {
             (activity as CreateTextActivity).button1Checked = checkboxButton1!!.isChecked
+
+            if(checkboxButton1.isChecked){
+                sectionBodyBody1.visibility = View.VISIBLE
+            }
+            else {
+                sectionBodyBody1.visibility = View.INVISIBLE
+            }
         }
         val checkboxButton11 = mview?.findViewById<CheckBox>(R.id.checkboxButton11)
         checkboxButton11?.setOnClickListener {

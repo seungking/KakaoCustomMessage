@@ -77,6 +77,7 @@
                         android:padding="5dp"
                         android:text="내용"
                         android:textColor="@android:color/black"
+                        android:fontFamily="@font/g_medium"
                         app:layout_constraintBottom_toTopOf="@+id/txtEditTextBody"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -156,7 +157,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:layout_marginBottom="15dp"
-                    android:text="메시지 내용"
+                    android:text="버튼 설정"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@android:color/black"
                     android:textStyle="bold"
@@ -189,38 +190,35 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
-                        android:layout_marginTop="10dp"
                         android:layout_marginEnd="15dp"
-                        android:layout_marginBottom="5dp"
                         android:padding="5dp"
-                        android:text="내용"
+                        android:text="버튼 1"
+                        android:fontFamily="@font/g_medium"
                         android:textColor="@android:color/black"
-                        app:layout_constraintBottom_toTopOf="@+id/txtEditTextBodyBody"
+                        app:layout_constraintHorizontal_bias="0.494"
                         app:layout_constraintStart_toEndOf="@+id/checkboxButton1"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/validateTxtBodyBody"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="25dp"
-                        android:text="2줄까지 가능합니다"
-                        android:textColor="@android:color/black"
-                        android:textSize="12dp"
-                        android:visibility="visible"
-                        app:layout_constraintBottom_toBottomOf="@+id/BodyBodyText"
-                        app:layout_constraintStart_toEndOf="@+id/BodyBodyText"
-                        app:layout_constraintTop_toTopOf="@+id/BodyBodyText" />
-
+                        app:layout_constraintTop_toTopOf="@+id/checkboxButton1" />
 
                     <androidx.appcompat.widget.AppCompatCheckBox
                         android:id="@+id/checkboxButton1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintBottom_toTopOf="@+id/txtEditTextBodyBody"
-                        app:layout_constraintStart_toStartOf="@+id/txtEditTextBodyBody"
+                        android:textColorLink="#535050"
+                        app:layout_constraintBottom_toBottomOf="@+id/BodyBodyText"
+                        app:layout_constraintStart_toStartOf="@+id/buttontext1"
+                        app:layout_constraintTop_toTopOf="@+id/BodyBodyText" />
 
-                        app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:id="@+id/buttontext1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="이름 : "
+                        android:textColor="@android:color/black"
+                        android:fontFamily="@font/g_medium"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/txtEditTextBodyBody"
+                        app:layout_constraintBottom_toBottomOf="@+id/txtEditTextBodyBody"
+                        android:layout_marginStart="20dp"/>
 
                     <EditText
                         android:id="@+id/txtEditTextBodyBody"
@@ -228,16 +226,48 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
+                        android:layout_marginTop="10dp"
                         android:background="@drawable/cornersbutton"
-                        android:hint="example@TextBody.com"
+                        android:hint="ex) 홈페이지"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:padding="5dp"
+                        android:textSize="15dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/buttontext1"
+                        app:layout_constraintTop_toBottomOf="@+id/BodyBodyText" />
+
+
+                    <EditText
+                        android:id="@+id/txtEditTextBodyBodyLink"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/cornersbutton"
+                        android:hint="ex) www.ANSK.co.kr"
                         android:lines="2"
                         android:maxLines="1"
                         android:padding="5dp"
                         android:textSize="15dp"
                         app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning1"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/buttontext2"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEditTextBodyBody" />
+
+                    <TextView
+                        android:id="@+id/buttontext2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="링크 : "
+                        android:textColor="@android:color/black"
+                        android:fontFamily="@font/g_medium"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/BodyBodyText" />
+                        app:layout_constraintTop_toTopOf="@+id/txtEditTextBodyBodyLink"
+                        app:layout_constraintBottom_toBottomOf="@+id/txtEditTextBodyBodyLink"
+                        android:layout_marginStart="20dp"/>
+
 
                     <TextView
                         android:id="@+id/bodyTextWarning1"
@@ -251,7 +281,7 @@
                         android:textColor="@color/kakaoUnSelect"
                         app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning2"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/txtEditTextBodyBody" />
+                        app:layout_constraintTop_toBottomOf="@id/txtEditTextBodyBodyLink" />
 
 
                     <TextView
@@ -274,47 +304,46 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/sectionBodyBody">
+
 
                     <TextView
                         android:id="@+id/BodyBodyText1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
-                        android:layout_marginTop="10dp"
                         android:layout_marginEnd="15dp"
-                        android:layout_marginBottom="5dp"
                         android:padding="5dp"
-                        android:text="내용"
+                        android:text="버튼 2"
+                        android:fontFamily="@font/g_medium"
                         android:textColor="@android:color/black"
-                        app:layout_constraintBottom_toTopOf="@+id/txtEditTextBodyBody1"
                         app:layout_constraintStart_toEndOf="@+id/checkboxButton11"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/validateTxtBodyBody1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="25dp"
-                        android:text="2줄까지 가능합니다"
-                        android:textColor="@android:color/black"
-                        android:textSize="12dp"
-                        android:visibility="visible"
-                        app:layout_constraintBottom_toBottomOf="@+id/BodyBodyText1"
-                        app:layout_constraintStart_toEndOf="@+id/BodyBodyText1"
-                        app:layout_constraintTop_toTopOf="@+id/BodyBodyText1" />
+                        app:layout_constraintTop_toTopOf="@+id/checkboxButton11" />
 
 
                     <androidx.appcompat.widget.AppCompatCheckBox
                         android:id="@+id/checkboxButton11"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColorLink="#535050"
                         app:layout_constraintBottom_toTopOf="@+id/txtEditTextBodyBody1"
-                        app:layout_constraintStart_toStartOf="@+id/txtEditTextBodyBody1"
-
+                        app:layout_constraintStart_toStartOf="@+id/buttontext11"
                         app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/buttontext11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="이름 : "
+                        android:textColor="@android:color/black"
+                        android:fontFamily="@font/g_medium"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/txtEditTextBodyBody1"
+                        app:layout_constraintBottom_toBottomOf="@+id/txtEditTextBodyBody1"
+                        android:layout_marginStart="20dp"/>
 
                     <EditText
                         android:id="@+id/txtEditTextBodyBody1"
@@ -322,16 +351,47 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
+                        android:layout_marginTop="10dp"
                         android:background="@drawable/cornersbutton"
-                        android:hint="example@TextBody.com"
+                        android:hint="ex) 홈페이지"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:padding="5dp"
+                        android:textSize="15dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/buttontext11"
+                        app:layout_constraintTop_toBottomOf="@+id/BodyBodyText1" />
+
+
+                    <EditText
+                        android:id="@+id/txtEditTextBodyBodyLink1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/cornersbutton"
+                        android:hint="ex) www.ANSK.co.kr"
                         android:lines="2"
                         android:maxLines="1"
                         android:padding="5dp"
                         android:textSize="15dp"
                         app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning11"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/buttontext21"
+                        app:layout_constraintTop_toBottomOf="@+id/txtEditTextBodyBody1" />
+
+                    <TextView
+                        android:id="@+id/buttontext21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="링크 : "
+                        android:textColor="@android:color/black"
+                        android:fontFamily="@font/g_medium"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/BodyBodyText1" />
+                        app:layout_constraintTop_toTopOf="@+id/txtEditTextBodyBodyLink1"
+                        app:layout_constraintBottom_toBottomOf="@+id/txtEditTextBodyBodyLink1"
+                        android:layout_marginStart="20dp"/>
 
                     <TextView
                         android:id="@+id/bodyTextWarning11"
@@ -345,7 +405,7 @@
                         android:textColor="@color/kakaoUnSelect"
                         app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning12"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/txtEditTextBodyBody1" />
+                        app:layout_constraintTop_toBottomOf="@id/txtEditTextBodyBodyLink1" />
 
 
                     <TextView
