@@ -71,7 +71,7 @@
         android:text="ANSK"
         android:layout_marginBottom="15dp"
         android:fontFamily="@font/g_bold"
-        android:textSize="15dp"/>
+        android:textSize="14sp"/>
 
 
 

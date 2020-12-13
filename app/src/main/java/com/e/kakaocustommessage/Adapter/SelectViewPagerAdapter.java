@@ -30,9 +30,9 @@ public class SelectViewPagerAdapter extends PagerAdapter {
     };
 
     private String titles[] ={
-            "주의사항",
-            "사용 방법1",
-            "사용 방법2"
+            "텍스트 템플릿",
+            "피드 템플릿",
+            "주소 템플릿"
     };
 
     private String descs[] ={

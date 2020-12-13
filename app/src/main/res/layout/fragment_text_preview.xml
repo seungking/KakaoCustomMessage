@@ -18,6 +18,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
+        <ImageView
+            android:id="@+id/textPreviewImageVIew"
+            android:maxHeight="500dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:adjustViewBounds="true"/>
+
+
         <TextView
             android:id="@+id/textPreviewText"
             android:layout_width="match_parent"

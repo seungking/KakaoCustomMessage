@@ -6,13 +6,23 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.e.kakaocustommessage.R
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 import kotlinx.android.synthetic.main.activity_create_text.*
 
 class CreateLocationActivity : AppCompatActivity() {
+    lateinit var mAdView : AdView
     var fragmentManager: FragmentManager? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_location)
+
+        MobileAds.initialize(this) {}
+
+        mAdView = findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
 
         fragmentManager = supportFragmentManager
         val fragmentTransaction: FragmentTransaction = fragmentManager!!.beginTransaction()

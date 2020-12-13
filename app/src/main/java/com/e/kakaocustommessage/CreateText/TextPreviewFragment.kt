@@ -26,7 +26,14 @@ class TextPreviewFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+
         textPreviewText.text = (activity as CreateTextActivity).text
+        if((activity as CreateTextActivity).imageBitmap!=null)
+            textPreviewImageVIew.setImageBitmap((activity as CreateTextActivity).imageBitmap)
+        if((activity as CreateTextActivity).imageURL!=null)
+            textPreviewImageVIew.setImageURI((activity as CreateTextActivity).imageURL)
+
+
         if((activity as CreateTextActivity).button1Checked) {
             button1.visibility = View.VISIBLE
             button1.text = (activity as CreateTextActivity).button1link

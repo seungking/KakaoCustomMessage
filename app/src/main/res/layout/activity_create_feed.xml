@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/kakaoSky2"
+    android:background="@color/kakaoSky"
     tools:context=".CreateText.CreateTextActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -89,15 +89,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/topLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/kakaoSky"
-        app:layout_constraintBottom_toTopOf="@+id/bottomLayout" />
-
     <FrameLayout
         android:id="@+id/createActivityFrame"
         android:layout_width="match_parent"
@@ -116,19 +107,41 @@
         android:background="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toTopOf="@+id/admobLayout">
 
         <Button
+            android:id="@+id/sendBtn"
             android:layout_width="70dp"
             android:layout_height="35dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/cornersyellow"
             android:text="전송"
             android:textColor="@android:color/black"
-            android:background="@drawable/cornersyellow"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginEnd="20dp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/admobLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            ads:adSize="BANNER"
+            ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+        </com.google.android.gms.ads.AdView>
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

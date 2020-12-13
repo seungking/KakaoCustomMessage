@@ -53,9 +53,9 @@ class LoginActivity : AppCompatActivity() {
                             "\n닉네임: ${user.kakaoAccount?.profile?.nickname}" +
                             "\n프로필사진: ${user.kakaoAccount?.profile?.thumbnailImageUrl}")
 
-                    Toasty.success(this, "로그인 성공", Toast.LENGTH_LONG).show()
+                    Toasty.success(this, "카카오톡 로그인 성공", Toast.LENGTH_SHORT).show()
                     if(pref.getBoolean("isFirstTime",false))
-                        startActivity(Intent(this, MainActivity::class.java))
+                        startActivity(Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
                     else{
                         startActivity(Intent(this, OnBoardActivity::class.java))
                         pref.edit().putBoolean("isFirstTime",true).commit();
@@ -85,10 +85,10 @@ class LoginActivity : AppCompatActivity() {
                                 "\n만료시간: ${tokenInfo.expiresIn} 초")
                     }
                 }
-                Toasty.success(this, "로그인 성공", Toast.LENGTH_LONG).show()
+                Toasty.success(this, "카카오톡 로그인 성공", Toast.LENGTH_SHORT).show()
 
                 if(pref.getBoolean("isFirstTime",false))
-                    startActivity(Intent(this, MainActivity::class.java))
+                    startActivity(Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
                 else{
                     startActivity(Intent(this, OnBoardActivity::class.java))
                     pref.edit().putBoolean("isFirstTime",true).commit();

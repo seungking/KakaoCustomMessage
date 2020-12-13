@@ -6,6 +6,11 @@
         <package android:name="com.kakao.talk" />
     </queries> <!-- 인터넷 사용 권한 설정 -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18" />
 
     <application
         android:name=".GlobalApplication"
@@ -15,10 +20,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".CreateFeed.CreateFeedActivity" />
-        <activity android:name=".CreateLocation.CreateLocationActivity" />
-        <activity android:name=".CreateText.CreateTextActivity" />
+        <activity android:name=".SelectActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".CreateFeed.CreateFeedActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CreateLocation.CreateLocationActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".CreateText.CreateTextActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
@@ -26,7 +35,7 @@
             android:name=".OnBoardActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SelectActivity"
+            android:name=".LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,6 +56,24 @@
                     android:scheme="kakao09e3d1820f567497aa373758a4bf09ed" />
             </intent-filter>
         </activity>
+
+        <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.e.kakaocustommessage.CreateText"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+
+        </provider>
+
     </application>
 
 </manifest>

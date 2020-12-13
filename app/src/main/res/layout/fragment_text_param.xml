@@ -25,9 +25,167 @@
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/sectionPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorTrans">
+
+                <TextView
+                    android:id="@+id/PhotoTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="이미지 등록"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/divPhotoTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@android:color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/PhotoTxt" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/sectionPhotoBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divPhotoTxt">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/photoBodyText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" >
+
+                        <LinearLayout
+                            android:id="@+id/AlbumLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/PhotoLayout"
+                            app:layout_constraintBottom_toBottomOf="parent">
+
+                            <ImageView
+                                android:id="@+id/selectAlbum"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/album"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="앨범"
+                                android:layout_marginTop="3dp"
+                                android:textColor="@android:color/black"
+                                android:fontFamily="@font/g_medium"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/PhotoLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/AlbumLayout"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:id="@+id/selectCamera"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/photo" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="3dp"
+                                android:fontFamily="@font/g_medium"
+                                android:text="카메라"
+                                android:textColor="@android:color/black" />
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/photoWarning1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="- 대문자+소문자+숫자 소합으로 입력해 주세요."
+                        android:textColor="@color/kakaoUnSelect"
+                        app:layout_constraintBottom_toTopOf="@+id/photoWarning2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/photoBodyText" />
+
+
+                    <TextView
+                        android:id="@+id/photoWarning2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="- 8자 이상으로 입력해 주세요."
+                        android:textColor="@color/kakaoUnSelect"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/photoWarning1"
+                        app:layout_constraintBottom_toBottomOf="@id/photoImg"/>
+
+                    <ImageView
+                        android:id="@+id/photoImg"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:adjustViewBounds="true"
+                        android:layout_margin="20dp"
+                        android:scaleType="fitCenter"
+                        android:visibility="gone"
+                        app:layout_constraintTop_toBottomOf="@id/photoWarning2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/sectionText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@color/colorTrans">
 
                 <TextView
@@ -58,13 +216,97 @@
                     app:layout_constraintTop_toBottomOf="@id/TextTxt" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/sectionTextBody"
+                    android:id="@+id/sectionTitleBody"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divTextTxt">
+
+                    <TextView
+                        android:id="@+id/TitleBodyText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:padding="5dp"
+                        android:text="내용"
+                        android:textColor="@android:color/black"
+                        android:fontFamily="@font/g_medium"
+                        app:layout_constraintBottom_toTopOf="@+id/txtEditTitleBody"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/validateTxtTitleBody"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:text="2줄까지 가능합니다"
+                        android:textColor="@android:color/black"
+                        android:textSize="12dp"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="@+id/TitleBodyText"
+                        app:layout_constraintStart_toEndOf="@+id/TitleBodyText"
+                        app:layout_constraintTop_toTopOf="@+id/TitleBodyText" />
+
+                    <EditText
+                        android:id="@+id/txtEditTitleBody"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:background="@drawable/cornersbutton"
+                        android:hint=""
+                        android:lines="2"
+                        android:maxLines="1"
+                        android:padding="5dp"
+                        android:textSize="15dp"
+                        app:layout_constraintBottom_toTopOf="@+id/TitleWarning1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/TitleBodyText" />
+
+                    <TextView
+                        android:id="@+id/TitleWarning1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="- 대문자+소문자+숫자 소합으로 입력해 주세요."
+                        android:textColor="@color/kakaoUnSelect"
+                        app:layout_constraintBottom_toTopOf="@+id/TitleWarning2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtEditTitleBody" />
+
+
+                    <TextView
+                        android:id="@+id/TitleWarning2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="- 8자 이상으로 입력해 주세요."
+                        android:textColor="@color/kakaoUnSelect"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/TitleWarning1" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/sectionTextBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sectionTitleBody">
 
                     <TextView
                         android:id="@+id/TextBodyText"
@@ -102,7 +344,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
                         android:background="@drawable/cornersbutton"
-                        android:hint="example@TextBody.com"
+                        android:hint=""
                         android:lines="3"
                         android:maxLines="1"
                         android:padding="5dp"
@@ -147,6 +389,7 @@
                 android:id="@+id/sectionButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@color/colorTrans">
 
                 <TextView
@@ -304,7 +547,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:visibility="visible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/sectionBodyBody">
