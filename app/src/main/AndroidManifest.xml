@@ -9,8 +9,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-feature android:name="android.hardware.camera"
         android:required="true" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".GlobalApplication"
@@ -29,13 +28,13 @@
         <activity android:name=".CreateText.CreateTextActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".OnBoardActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -64,7 +63,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="com.e.kakaocustommessage.CreateText"
+            android:authorities="com.e.kakaocustommessage"
             android:exported="false"
             android:grantUriPermissions="true">
 

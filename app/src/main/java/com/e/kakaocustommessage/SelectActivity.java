@@ -64,6 +64,9 @@ public class SelectActivity extends AppCompatActivity {
             overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
         });
 
+        selectBack.setOnClickListener(v->{
+            finish();
+        });
 
     }
 

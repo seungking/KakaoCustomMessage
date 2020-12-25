@@ -1,16 +1,16 @@
 package com.e.kakaocustommessage.CreateText
 
+import android.content.Context
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.airbnb.lottie.parser.ColorParser
 import com.e.kakaocustommessage.R
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
@@ -18,7 +18,7 @@ import com.google.android.gms.ads.MobileAds
 import com.kakao.sdk.talk.TalkApiClient
 import com.kakao.sdk.template.model.*
 import kotlinx.android.synthetic.main.activity_create_text.*
-import java.net.URL
+import java.io.ByteArrayOutputStream
 
 
 class CreateTextActivity : AppCompatActivity() {
@@ -30,12 +30,17 @@ class CreateTextActivity : AppCompatActivity() {
     var button2Checked : Boolean = false
     var button1link : String = ""
     var button2link : String = ""
+    var button1linkLink : String = ""
+    var button2linkLink : String = ""
     var imageBitmap : Bitmap? = null
     var imageURL : Uri? = null
     lateinit var mAdView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_text)
 
@@ -47,7 +52,15 @@ class CreateTextActivity : AppCompatActivity() {
 
         fragmentManager = supportFragmentManager
         val fragmentTransaction: FragmentTransaction = fragmentManager!!.beginTransaction()
-        fragmentTransaction.replace(R.id.createActivityFrame, TextParamFragment(),TextParamFragment::class.java.simpleName).commit()
+        fragmentTransaction.replace(
+            R.id.createActivityFrame,
+            TextParamFragment(),
+            TextParamFragment::class.java.simpleName
+        ).commit()
+
+        createBackBtn.setOnClickListener {
+            finish()
+        }
 
         val defaultLocation = LocationTemplate(
             address = "경기 성남시 분당구 판교역로 235 에이치스퀘어 N동 8층",
@@ -71,27 +84,31 @@ class CreateTextActivity : AppCompatActivity() {
                 )
             )
 
+            var stringUri = ""
+            if(imageBitmap!=null) stringUri = getImageUri(this, imageBitmap!!).toString()
+            else if(imageURL!=null) stringUri = imageURL.toString()
+
             val defaultFeed = FeedTemplate(
                 content = Content(
                     title = title,
                     description = text,
-                    imageUrl = "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile22.uf.tistory.com%2Fimage%2F257C475057359C8105B088",
+                    imageUrl = stringUri,
                     link = Link(
                     )
                 ),
                 buttons = listOf(
                     Button(
-                        "웹으로 보기",
+                        button1link,
                         Link(
-                            webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button1link",
-                            mobileWebUrl = "https://m.search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button1link"
+                            webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button1linkLink",
+                            mobileWebUrl = "https://m.search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button1linkLink"
                         )
                     ),
                     Button(
-                        "앱으로 보기",
+                        button2link,
                         Link(
-                            webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button2link",
-                            mobileWebUrl = "https://m.search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button2link"
+                            webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button2linkLink",
+                            mobileWebUrl = "https://m.search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button2linkLink"
                         )
                     )
                 )
@@ -108,28 +125,60 @@ class CreateTextActivity : AppCompatActivity() {
         }
 
         toParamFragment.setOnClickListener {
-            toParamFragment.setTextColor(ContextCompat.getColor(this,R.color.kakaoSelect))
-            toPreviewFragment.setTextColor(ContextCompat.getColor(this,R.color.kakaoUnSelect))
+            toParamFragment.setTextColor(ContextCompat.getColor(this, R.color.kakaoSelect))
+            toPreviewFragment.setTextColor(ContextCompat.getColor(this, R.color.kakaoUnSelect))
 
             val fragment = fragmentManager!!.findFragmentByTag(TextParamFragment::class.java.getSimpleName())
             if (fragment != null) {
-                fragmentManager!!.beginTransaction().remove(fragmentManager!!.findFragmentByTag(TextPreviewFragment::class.java.getSimpleName())!!).commit()
-                fragmentManager!!.beginTransaction().show(fragmentManager!!.findFragmentByTag(TextParamFragment::class.java.getSimpleName())!!).commit()
+                fragmentManager!!.beginTransaction().remove(
+                    fragmentManager!!.findFragmentByTag(
+                        TextPreviewFragment::class.java.getSimpleName()
+                    )!!
+                ).commit()
+                fragmentManager!!.beginTransaction().show(
+                    fragmentManager!!.findFragmentByTag(
+                        TextParamFragment::class.java.getSimpleName()
+                    )!!
+                ).commit()
             }
         }
 
         toPreviewFragment.setOnClickListener {
-            toParamFragment.setTextColor(ContextCompat.getColor(this,R.color.kakaoUnSelect))
-            toPreviewFragment.setTextColor(ContextCompat.getColor(this,R.color.kakaoSelect))
+            toParamFragment.setTextColor(ContextCompat.getColor(this, R.color.kakaoUnSelect))
+            toPreviewFragment.setTextColor(ContextCompat.getColor(this, R.color.kakaoSelect))
 
             val fragment = fragmentManager!!.findFragmentByTag(TextPreviewFragment::class.java.getSimpleName())
-            fragmentManager!!.beginTransaction().hide(fragmentManager!!.findFragmentByTag(TextParamFragment::class.java.getSimpleName())!!).commit()
+            fragmentManager!!.beginTransaction().hide(
+                fragmentManager!!.findFragmentByTag(
+                    TextParamFragment::class.java.getSimpleName()
+                )!!
+            ).commit()
             if (fragment != null)
-                fragmentManager!!.beginTransaction().show(fragmentManager!!.findFragmentByTag(TextPreviewFragment::class.java.getSimpleName())!!).commit()
+                fragmentManager!!.beginTransaction().show(
+                    fragmentManager!!.findFragmentByTag(
+                        TextPreviewFragment::class.java.getSimpleName()
+                    )!!
+                ).commit()
              else
-                fragmentManager!!.beginTransaction().add(R.id.createActivityFrame, TextPreviewFragment(),TextPreviewFragment::class.java.simpleName).commit()
+                fragmentManager!!.beginTransaction().add(
+                    R.id.createActivityFrame,
+                    TextPreviewFragment(),
+                    TextPreviewFragment::class.java.simpleName
+                ).commit()
         }
 
 
+    }
+
+    private fun getImageUri(context: Context, inImage: Bitmap): Uri? {
+        val bytes = ByteArrayOutputStream()
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
+        val path = MediaStore.Images.Media.insertImage(
+            context.getContentResolver(),
+            inImage,
+            "Title",
+            null
+        )
+        return Uri.parse(path)
     }
 }

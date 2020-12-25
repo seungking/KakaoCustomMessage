@@ -17,8 +17,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         howToLayout.setOnClickListener {
-            startActivity(Intent(this, OnBoardActivity::class.java))
-            finish()
+            startActivity(Intent(this, OnBoardActivity::class.java).putExtra("goMain", false))
         }
 
         contactLayout1.setOnClickListener {

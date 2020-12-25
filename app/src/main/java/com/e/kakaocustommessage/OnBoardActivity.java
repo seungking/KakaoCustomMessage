@@ -48,7 +48,7 @@ public class OnBoardActivity extends AppCompatActivity {
             }
             else{
                 // 다 끝나면 인증창으로
-                startActivity(new Intent(OnBoardActivity.this,MainActivity.class));
+                if(getIntent().getBooleanExtra("goMain",true)) startActivity(new Intent(OnBoardActivity.this,MainActivity.class));
                 finish();
                 overridePendingTransition(R.anim.slide_from_right,R.anim.slide_to_left);
             }

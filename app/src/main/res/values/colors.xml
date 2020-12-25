@@ -12,4 +12,6 @@
     <color name="kakaoSky2">#a9bdce</color>
     <color name="kakaoSelect">#444c52</color>
     <color name="kakaoUnSelect">#67717a</color>
+
+    <color name="clickable_false">#55ffffff</color>
 </resources>
