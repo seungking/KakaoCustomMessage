@@ -8,7 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.e.kakaocustommessage.R
+import kotlinx.android.synthetic.main.fragment_feed_preview.*
 import kotlinx.android.synthetic.main.fragment_text_preview.*
+import kotlinx.android.synthetic.main.fragment_text_preview.button1
+import kotlinx.android.synthetic.main.fragment_text_preview.textPreviewText
 
 
 class FeedPreviewFragment : Fragment() {

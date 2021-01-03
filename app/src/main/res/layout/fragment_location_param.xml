@@ -25,9 +25,181 @@
             android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/sectionPhoto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorTrans">
+
+                <TextView
+                    android:id="@+id/PhotoTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="이미지 등록"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/divPhotoTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@android:color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/PhotoTxt" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/sectionPhotoBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divPhotoTxt">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/photoBodyText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" >
+
+                        <LinearLayout
+                            android:id="@+id/AlbumLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/PhotoLayout"
+                            app:layout_constraintBottom_toBottomOf="parent">
+
+                            <ImageView
+                                android:id="@+id/selectAlbum"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:scaleType="centerInside"
+                                android:focusable="false"
+                                android:src="@drawable/album"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="앨범"
+                                android:layout_marginTop="3dp"
+                                android:textColor="@android:color/black"
+                                android:fontFamily="@font/g_medium"
+                                android:layout_gravity="center"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/PhotoLayout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/AlbumLayout"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:id="@+id/selectCamera"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:scaleType="centerInside"
+                                android:src="@drawable/photo" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="3dp"
+                                android:fontFamily="@font/g_medium"
+                                android:text="카메라"
+                                android:textColor="@android:color/black" />
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/photoWarning1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="- 대문자+소문자+숫자 소합으로 입력해 주세요."
+                        android:textColor="@color/kakaoUnSelect"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/photoBodyText" />
+
+
+                    <TextView
+                        android:id="@+id/photoWarning2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="- 8자 이상으로 입력해 주세요."
+                        android:textColor="@color/kakaoUnSelect"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/photoWarning1" />
+
+                    <ImageView
+                        android:id="@+id/photoImg"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:adjustViewBounds="true"
+                        android:layout_margin="20dp"
+                        android:scaleType="fitCenter"
+                        android:clickable="false"
+                        android:visibility="gone"
+                        app:layout_constraintTop_toBottomOf="@id/photoWarning2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <Button
+                        android:id="@+id/photoImgRemoveBtn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="@+id/photoImg"
+                        app:layout_constraintEnd_toEndOf="@id/photoImg"
+                        app:layout_constraintTop_toBottomOf="@+id/photoImg"
+                        android:layout_marginHorizontal="20dp"
+                        android:text="삭제"
+                        android:fontFamily="@font/g_medium"
+                        android:background="@drawable/cornerswhite"
+                        android:textSize="14sp"
+                        android:visibility="gone"
+                        android:layout_marginTop="20dp"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/sectionText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@color/colorTrans">
 
                 <TextView
@@ -38,7 +210,7 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:layout_marginBottom="15dp"
-                    android:text="메시지 내용"
+                    android:text="텍스트 설정"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@android:color/black"
                     android:textStyle="bold"
@@ -75,7 +247,7 @@
                         android:layout_marginEnd="15dp"
                         android:layout_marginBottom="5dp"
                         android:padding="5dp"
-                        android:text="내용"
+                        android:text="제목"
                         android:textColor="@android:color/black"
                         android:fontFamily="@font/g_medium"
                         app:layout_constraintBottom_toTopOf="@+id/txtEditTitleBody"
@@ -231,6 +403,7 @@
                 android:id="@+id/sectionButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:background="@color/colorTrans">
 
                 <TextView
@@ -309,14 +482,15 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
-                        android:layout_marginEnd="15dp"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/cornersbutton"
+                        android:layout_marginEnd="15dp"
+                        android:background="@drawable/cornerclickablefalse"
                         android:hint="ex) 홈페이지"
                         android:lines="1"
                         android:maxLines="1"
                         android:padding="5dp"
                         android:textSize="15dp"
+                        android:focusableInTouchMode="false"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/buttontext1"
                         app:layout_constraintTop_toBottomOf="@+id/BodyBodyText" />
@@ -327,10 +501,11 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
-                        android:layout_marginEnd="15dp"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/cornersbutton"
+                        android:layout_marginEnd="15dp"
+                        android:background="@drawable/cornerclickablefalse"
                         android:hint="ex) www.ANSK.co.kr"
+                        android:focusableInTouchMode="false"
                         android:lines="2"
                         android:maxLines="1"
                         android:padding="5dp"
@@ -388,7 +563,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:visibility="visible"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/sectionBodyBody">
@@ -436,11 +611,13 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/cornersbutton"
+                        android:background="@drawable/cornerclickablefalse"
                         android:hint="ex) 홈페이지"
                         android:lines="1"
                         android:maxLines="1"
                         android:padding="5dp"
+                        android:clickable="false"
+                        android:focusable="false"
                         android:textSize="15dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/buttontext11"
@@ -454,9 +631,11 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
                         android:layout_marginTop="10dp"
-                        android:background="@drawable/cornersbutton"
+                        android:background="@drawable/cornerclickablefalse"
                         android:hint="ex) www.ANSK.co.kr"
                         android:lines="2"
+                        android:clickable="false"
+                        android:focusable="false"
                         android:maxLines="1"
                         android:padding="5dp"
                         android:textSize="15dp"

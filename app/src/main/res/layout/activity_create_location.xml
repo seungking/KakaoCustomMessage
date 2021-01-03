@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/kakaoSky"
+    android:id="@+id/rootView"
     tools:context=".CreateText.CreateTextActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,6 +32,7 @@
             android:layout_marginTop="40dp"/>
 
         <ImageView
+            android:id="@+id/createBackBtn"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:src="@drawable/ic_baseline_arrow_back_ios_24"
@@ -102,7 +104,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bottomLayout"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="55dp"
         android:elevation="5dp"
         android:background="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"

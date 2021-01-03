@@ -17,15 +17,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <ImageView
-            android:id="@+id/textPreviewImageVIew"
-            android:maxHeight="200dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true"/>
-
-
         <TextView
             android:id="@+id/textPreviewText"
             android:layout_width="match_parent"
@@ -38,21 +29,9 @@
             android:paddingHorizontal="19.5dp"
             android:paddingTop="7dp"/>
 
-        <TextView
-            android:id="@+id/textPreviewTextsub"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/black"
-            android:text="아아아아아아아아아아아아아아아아아아아아"
-            android:fontFamily="@font/g_light"
-            android:maxLines="2"
-            android:textSize="13.5dp"
-            android:paddingHorizontal="19.5dp"
-            android:paddingBottom="5dp"
-            android:paddingTop="12dp"/>
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
+            android:layout_marginTop="7dp"
             android:layout_height="wrap_content">
 
             <Button
@@ -63,25 +42,12 @@
                 android:layout_marginEnd="15dp"
                 android:visibility="gone"
                 android:lines="1"
+                android:text="자세히 보기"
                 android:background="@drawable/cornersbutton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/button2"/>
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="0dp"
-                android:layout_height="38dp"
-                android:layout_marginEnd="15dp"
-                android:visibility="gone"
-                android:lines="1"
-                android:background="@drawable/cornersbutton"
-                app:layout_constraintStart_toEndOf="@+id/button1"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

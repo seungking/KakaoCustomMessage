@@ -24,26 +24,12 @@ class TextPreviewFragment : Fragment() {
 
         if((activity as CreateTextActivity).title.length==0) textPreviewText.visibility = View.GONE
         textPreviewText.text = (activity as CreateTextActivity).title
-        if((activity as CreateTextActivity).text.length==0) textPreviewTextsub.visibility = View.GONE
-        textPreviewTextsub.text = (activity as CreateTextActivity).text
-        if((activity as CreateTextActivity).imageBitmap!=null)
-            textPreviewImageVIew.setImageBitmap((activity as CreateTextActivity).imageBitmap)
-        if((activity as CreateTextActivity).imageURL!=null)
-            textPreviewImageVIew.setImageURI((activity as CreateTextActivity).imageURL)
-
 
         if((activity as CreateTextActivity).button1Checked) {
             button1.visibility = View.VISIBLE
-            button1.text = (activity as CreateTextActivity).button1link
-            if((activity as CreateTextActivity).button2Checked) {
-                button2.visibility = View.VISIBLE
-                button2.text = (activity as CreateTextActivity).button2link
-            }
-            else button2.visibility = View.GONE
         }
         else {
             button1.visibility = View.GONE
-            button2.visibility = View.GONE
         }
     }
 

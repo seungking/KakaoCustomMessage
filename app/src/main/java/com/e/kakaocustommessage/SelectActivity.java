@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.e.kakaocustommessage.Adapter.OnBoardViewPagerAdapter;
 import com.e.kakaocustommessage.Adapter.SelectViewPagerAdapter;
 import com.e.kakaocustommessage.CreateFeed.CreateFeedActivity;
+import com.e.kakaocustommessage.CreateLocation.CreateLocationActivity;
 import com.e.kakaocustommessage.CreateText.CreateTextActivity;
 
 public class SelectActivity extends AppCompatActivity {
@@ -58,7 +59,7 @@ public class SelectActivity extends AppCompatActivity {
             Intent intent = (Intent)null;
             if(viewPager.getCurrentItem()==0) intent = new Intent(this, CreateTextActivity.class);
             else if(viewPager.getCurrentItem()==1) intent = new Intent(this, CreateFeedActivity.class);
-            else if(viewPager.getCurrentItem()==2) intent = new Intent(this, CreateFeedActivity.class);
+            else if(viewPager.getCurrentItem()==2) intent = new Intent(this, CreateLocationActivity.class);
             startActivity(intent);
             finish();
             overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);

@@ -30,7 +30,9 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import com.e.kakaocustommessage.R
 import es.dmoral.toasty.Toasty
+import kotlinx.android.synthetic.main.fragment_feed_param.*
 import kotlinx.android.synthetic.main.fragment_text_param.*
+import kotlinx.android.synthetic.main.fragment_text_param.sectionBodyBody1
 import java.io.File
 import java.io.IOException
 import java.net.URI

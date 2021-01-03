@@ -108,9 +108,9 @@ class CreateFeedActivity : AppCompatActivity() {
             address = "경기 성남시 분당구 판교역로 235 에이치스퀘어 N동 8층",
             addressTitle = "카카오 판교오피스 카페톡",
             content = Content(
-                title = "신메뉴 출시❤️ 체리블라썸라떼",
-                description = "이번 주는 체리블라썸라떼 1+1",
-                imageUrl = "http://mud-kage.kakao.co.kr/dn/bSbH9w/btqgegaEDfW/vD9KKV0hEintg6bZT4v4WK/kakaolink40_original.png",
+                title = title,
+                description = text,
+                imageUrl = stringUri.toString(),
                 link = Link(
                 )
             )
@@ -119,14 +119,6 @@ class CreateFeedActivity : AppCompatActivity() {
         sendBtn.setOnClickListener{
 
             rootView!!.addView(screenLoading)
-
-            val defaultText = TextTemplate(
-                text = text,
-                link = Link(
-                    webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button1link",
-                    mobileWebUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button1link"
-                )
-            )
 
             if(imageBitmap!=null) {
 
