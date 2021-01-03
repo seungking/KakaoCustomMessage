@@ -22,7 +22,9 @@ class TextPreviewFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
+        if((activity as CreateTextActivity).title.length==0) textPreviewText.visibility = View.GONE
         textPreviewText.text = (activity as CreateTextActivity).title
+        if((activity as CreateTextActivity).text.length==0) textPreviewTextsub.visibility = View.GONE
         textPreviewTextsub.text = (activity as CreateTextActivity).text
         if((activity as CreateTextActivity).imageBitmap!=null)
             textPreviewImageVIew.setImageBitmap((activity as CreateTextActivity).imageBitmap)

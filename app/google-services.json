@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "883941617031",
+    "project_id": "kakaocustommessage",
+    "storage_bucket": "kakaocustommessage.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:883941617031:android:5823ffb967cb7ab70eb722",
+        "android_client_info": {
+          "package_name": "com.e.kakaocustommessage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "883941617031-ppipd3qluavsd4ch03083hbpjo6738pk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkB6hF2Ha4Al__v852wcbEMJUn2pG1USc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "883941617031-ppipd3qluavsd4ch03083hbpjo6738pk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

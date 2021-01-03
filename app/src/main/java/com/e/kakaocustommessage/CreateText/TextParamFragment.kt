@@ -130,7 +130,7 @@ class TextParamFragment : Fragment() {
                 txtEditTextBodyBody!!.background = requireContext().getDrawable(R.drawable.cornerswhite)
                 txtEditTextBodyBodyLink!!.background = requireContext().getDrawable(R.drawable.cornerswhite)
 
-                Log.d("logggg", "button1 clicked + ${txtEditTextBodyBody.isFocusable}  ${txtEditTextBodyBodyLink.isClickable}")
+//                Log.d("logggg", "button1 clicked + ${txtEditTextBodyBody.isFocusable}  ${txtEditTextBodyBodyLink.isClickable}")
             } else {
 
                 sectionBodyBody1.visibility = View.GONE
@@ -144,7 +144,7 @@ class TextParamFragment : Fragment() {
                 txtEditTextBodyBody!!.background = requireContext().getDrawable(R.drawable.cornerclickablefalse)
                 txtEditTextBodyBodyLink!!.background = requireContext().getDrawable(R.drawable.cornerclickablefalse)
 
-                Log.d("logggg", "button1 unclicked + ${txtEditTextBodyBody.isFocusable}  ${txtEditTextBodyBodyLink.isClickable}")
+//                Log.d("logggg", "button1 unclicked + ${txtEditTextBodyBody.isFocusable}  ${txtEditTextBodyBodyLink.isClickable}")
             }
         }
         val checkboxButton11 = mview?.findViewById<CheckBox>(R.id.checkboxButton11)
