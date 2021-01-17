@@ -59,7 +59,7 @@ public class SelectActivity extends AppCompatActivity {
             Intent intent = (Intent)null;
             if(viewPager.getCurrentItem()==0) intent = new Intent(this, CreateTextActivity.class);
             else if(viewPager.getCurrentItem()==1) intent = new Intent(this, CreateFeedActivity.class);
-            else if(viewPager.getCurrentItem()==2) intent = new Intent(this, CreateLocationActivity.class);
+//            else if(viewPager.getCurrentItem()==2) intent = new Intent(this, CreateLocationActivity.class);
             startActivity(intent);
             finish();
             overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
@@ -80,12 +80,12 @@ public class SelectActivity extends AppCompatActivity {
     //뷰페이저 점 추가
     private void addDots(int position) {
         dotsLayout.removeAllViews();
-        dots = new TextView[3];
+        dots = new TextView[2];
         for (int i = 0; i < dots.length; i++) {
             dots[i] = new TextView(this);
             //점 생성하는 html 코드
             dots[i].setText(Html.fromHtml("&#8226"));
-            dots[i].setTextSize(35);
+            dots[i].setTextSize(45);
             dots[i].setTextColor(getResources().getColor(R.color.colorLightGrey));
             dotsLayout.addView(dots[i]);
         }
@@ -110,10 +110,12 @@ public class SelectActivity extends AppCompatActivity {
             if (position == 0) {
                 btnLeft.setVisibility(View.INVISIBLE);
                 btnRight.setVisibility(View.VISIBLE);
-            } else if (position == 1) {
-                btnLeft.setVisibility(View.VISIBLE);
-                btnRight.setVisibility(View.VISIBLE);
-            } else {
+            }
+//            else if (position == 1) {
+//                btnLeft.setVisibility(View.VISIBLE);
+//                btnRight.setVisibility(View.VISIBLE);
+//            }
+            else {
                 btnLeft.setVisibility(View.VISIBLE);
                 btnRight.setVisibility(View.INVISIBLE);
             }

@@ -1,5 +1,4 @@
 package com.e.kakaocustommessage.CreateLocation
-import android.content.Context
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
@@ -14,7 +13,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.e.kakaocustommessage.CreateFeed.LocationPreviewFragment
-import com.e.kakaocustommessage.CreateLocation.LocationParamFragment
 import com.e.kakaocustommessage.Helper
 import com.e.kakaocustommessage.R
 import com.google.android.gms.ads.AdRequest
@@ -25,7 +23,9 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 import com.kakao.sdk.talk.TalkApiClient
-import com.kakao.sdk.template.model.*
+import com.kakao.sdk.template.model.Content
+import com.kakao.sdk.template.model.Link
+import com.kakao.sdk.template.model.LocationTemplate
 import kotlinx.android.synthetic.main.activity_create_text.*
 import java.io.ByteArrayOutputStream
 
@@ -80,7 +80,7 @@ class CreateLocationActivity : AppCompatActivity() {
         // imagesRef now points to "images"
         // Create a storage reference from our app
         storageRef = storage.reference
-        imagesRef = storageRef!!.child( tempKey + "/images")
+        imagesRef = storageRef!!.child(tempKey + "/images")
 
         ////////////////////////////////////////////////////////////////
 
@@ -220,13 +220,30 @@ class CreateLocationActivity : AppCompatActivity() {
                 title = title,
                 description = text,
                 imageUrl = stringUri.toString(),
-                link = Link(
+                link =  Link(
+                    webUrl = "https://developers.com",
+                    mobileWebUrl = "https://developers.kakao.com"
                 )
-            ),
+        ),
             buttons = listOf()
         )
 
-        TalkApiClient.instance.sendDefaultMemo(defaultLocation) { error ->
+        val defaultLocatio2n = LocationTemplate(
+            address = "서울시 노원궁",
+            addressTitle = "서울시 노원구",
+            content = Content(
+                title = title,
+                description = text,
+                imageUrl = stringUri.toString(),
+                link =  Link(
+                    webUrl = "",
+                    mobileWebUrl = ""
+                )
+            )
+        )
+
+
+        TalkApiClient.instance.sendDefaultMemo(defaultLocatio2n) { error ->
             rootView!!.removeView(screenLoading)
             if (error != null) {
                 Log.e("log1", "나에게 보내기 실패", error)

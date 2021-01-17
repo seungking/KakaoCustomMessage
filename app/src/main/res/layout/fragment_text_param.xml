@@ -76,7 +76,7 @@
                         android:layout_marginEnd="15dp"
                         android:layout_marginBottom="5dp"
                         android:padding="5dp"
-                        android:text="제목"
+                        android:text="내용"
                         android:textColor="@android:color/black"
                         android:fontFamily="@font/g_medium"
                         app:layout_constraintBottom_toTopOf="@+id/txtEditTitleBody"
@@ -88,7 +88,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="25dp"
-                        android:text="2줄까지 가능합니다"
+                        android:text="최대 200자까지 입력 가능합니다."
                         android:textColor="@android:color/black"
                         android:textSize="12dp"
                         android:visibility="visible"
@@ -104,7 +104,8 @@
                         android:layout_marginEnd="15dp"
                         android:background="@drawable/cornersbutton"
                         android:hint=""
-                        android:lines="2"
+                        android:lines="10"
+                        android:minHeight="50dp"
                         android:maxLines="1"
                         android:padding="5dp"
                         android:textSize="15dp"
@@ -187,20 +188,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divBodyTxt">
 
-                    <TextView
-                        android:id="@+id/BodyBodyText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginEnd="15dp"
-                        android:padding="5dp"
-                        android:text="버튼 1"
-                        android:fontFamily="@font/g_medium"
-                        android:textColor="@android:color/black"
-                        app:layout_constraintHorizontal_bias="0.494"
-                        app:layout_constraintStart_toEndOf="@+id/checkboxButton1"
-                        app:layout_constraintTop_toTopOf="@+id/checkboxButton1" />
-
                     <androidx.appcompat.widget.AppCompatCheckBox
                         android:id="@+id/checkboxButton1"
                         android:layout_width="wrap_content"
@@ -210,13 +197,29 @@
                         app:layout_constraintStart_toStartOf="@+id/buttontext1"
                         app:layout_constraintTop_toTopOf="@+id/BodyBodyText" />
 
+                    <com.tomlonghurst.expandablehinttext.ExpandableHintText
+                        android:id="@+id/expand_activities_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:hint="네이버 검색어"
+                        app:textBoxColor="@android:color/white"
+                        app:floatingLabelColor="@android:color/white"
+                        app:layout_constraintHorizontal_bias="0.494"
+                        app:layout_constraintStart_toEndOf="@+id/checkboxButton1"
+                        app:layout_constraintTop_toTopOf="@+id/checkboxButton1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+
                     <TextView
                         android:id="@+id/buttontext1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="이름 : "
+                        android:text="검색어 : "
                         android:textColor="@android:color/black"
                         android:fontFamily="@font/g_medium"
+                        android:visibility="invisible"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/txtEditTextBodyBody"
                         app:layout_constraintBottom_toBottomOf="@+id/txtEditTextBodyBody"
@@ -235,6 +238,7 @@
                         android:maxLines="1"
                         android:padding="5dp"
                         android:textSize="15dp"
+                        android:visibility="invisible"
                         android:focusableInTouchMode="false"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/buttontext1"
@@ -249,11 +253,11 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="15dp"
                         android:layout_marginBottom="5dp"
-                        android:text="- 대문자+소문자+숫자 소합으로 입력해 주세요."
+                        android:text=" - 버튼명은 8자 이하를 권장합니다."
                         android:textColor="@color/kakaoUnSelect"
                         app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning2"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/txtEditTextBodyBody" />
+                        app:layout_constraintStart_toStartOf="@+id/expand_activities_button"
+                        app:layout_constraintTop_toBottomOf="@id/expand_activities_button" />
 
 
                     <TextView
@@ -263,140 +267,139 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
                         android:layout_marginBottom="5dp"
-                        android:text="- 8자 이상으로 입력해 주세요."
+                        android:text="- 네이버 검색으로 이동합니다."
                         android:textColor="@color/kakaoUnSelect"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/expand_activities_button"
                         app:layout_constraintTop_toBottomOf="@+id/bodyTextWarning1" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/sectionBodyBody1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:visibility="invisible"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/sectionBodyBody">
-
-
-                    <TextView
-                        android:id="@+id/BodyBodyText1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginEnd="15dp"
-                        android:padding="5dp"
-                        android:text="버튼 2"
-                        android:fontFamily="@font/g_medium"
-                        android:textColor="@android:color/black"
-                        app:layout_constraintStart_toEndOf="@+id/checkboxButton11"
-                        app:layout_constraintTop_toTopOf="@+id/checkboxButton11" />
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:id="@+id/sectionBodyBody1"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:visibility="gone"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/sectionBodyBody">-->
 
 
-                    <androidx.appcompat.widget.AppCompatCheckBox
-                        android:id="@+id/checkboxButton11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColorLink="#535050"
-                        app:layout_constraintBottom_toTopOf="@+id/txtEditTextBodyBody1"
-                        app:layout_constraintStart_toStartOf="@+id/buttontext11"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/buttontext11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="이름 : "
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/g_medium"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/txtEditTextBodyBody1"
-                        app:layout_constraintBottom_toBottomOf="@+id/txtEditTextBodyBody1"
-                        android:layout_marginStart="20dp"/>
-
-                    <EditText
-                        android:id="@+id/txtEditTextBodyBody1"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/cornerclickablefalse"
-                        android:hint="ex) 홈페이지"
-                        android:lines="1"
-                        android:maxLines="1"
-                        android:padding="5dp"
-                        android:clickable="false"
-                        android:focusable="false"
-                        android:textSize="15dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/buttontext11"
-                        app:layout_constraintTop_toBottomOf="@+id/BodyBodyText1" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/BodyBodyText1"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="15dp"-->
+<!--                        android:layout_marginEnd="15dp"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:text="버튼 2"-->
+<!--                        android:fontFamily="@font/g_medium"-->
+<!--                        android:textColor="@android:color/black"-->
+<!--                        app:layout_constraintStart_toEndOf="@+id/checkboxButton11"-->
+<!--                        app:layout_constraintTop_toTopOf="@+id/checkboxButton11" />-->
 
 
-                    <EditText
-                        android:id="@+id/txtEditTextBodyBodyLink1"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/cornerclickablefalse"
-                        android:hint="ex) www.ANSK.co.kr"
-                        android:lines="2"
-                        android:clickable="false"
-                        android:focusable="false"
-                        android:maxLines="1"
-                        android:padding="5dp"
-                        android:textSize="15dp"
-                        app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning11"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/buttontext21"
-                        app:layout_constraintTop_toBottomOf="@+id/txtEditTextBodyBody1" />
+<!--                    <androidx.appcompat.widget.AppCompatCheckBox-->
+<!--                        android:id="@+id/checkboxButton11"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textColorLink="#535050"-->
+<!--                        app:layout_constraintBottom_toTopOf="@+id/txtEditTextBodyBody1"-->
+<!--                        app:layout_constraintStart_toStartOf="@+id/buttontext11"-->
+<!--                        app:layout_constraintTop_toTopOf="parent" />-->
 
-                    <TextView
-                        android:id="@+id/buttontext21"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="링크 : "
-                        android:textColor="@android:color/black"
-                        android:fontFamily="@font/g_medium"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/txtEditTextBodyBodyLink1"
-                        app:layout_constraintBottom_toBottomOf="@+id/txtEditTextBodyBodyLink1"
-                        android:layout_marginStart="20dp"/>
+<!--                    <TextView-->
+<!--                        android:id="@+id/buttontext11"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="이름 : "-->
+<!--                        android:textColor="@android:color/black"-->
+<!--                        android:fontFamily="@font/g_medium"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="@+id/txtEditTextBodyBody1"-->
+<!--                        app:layout_constraintBottom_toBottomOf="@+id/txtEditTextBodyBody1"-->
+<!--                        android:layout_marginStart="20dp"/>-->
 
-                    <TextView
-                        android:id="@+id/bodyTextWarning11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="- 대문자+소문자+숫자 소합으로 입력해 주세요."
-                        android:textColor="@color/kakaoUnSelect"
-                        app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning12"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/txtEditTextBodyBodyLink1" />
+<!--                    <EditText-->
+<!--                        android:id="@+id/txtEditTextBodyBody1"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="15dp"-->
+<!--                        android:layout_marginEnd="15dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:background="@drawable/cornerclickablefalse"-->
+<!--                        android:hint="ex) 홈페이지"-->
+<!--                        android:lines="1"-->
+<!--                        android:maxLines="1"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:clickable="false"-->
+<!--                        android:focusable="false"-->
+<!--                        android:textSize="15dp"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toEndOf="@+id/buttontext11"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/BodyBodyText1" />-->
 
 
-                    <TextView
-                        android:id="@+id/bodyTextWarning12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginBottom="5dp"
-                        android:text="- 8자 이상으로 입력해 주세요."
-                        android:textColor="@color/kakaoUnSelect"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/bodyTextWarning11" />
+<!--                    <EditText-->
+<!--                        android:id="@+id/txtEditTextBodyBodyLink1"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="15dp"-->
+<!--                        android:layout_marginEnd="15dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:background="@drawable/cornerclickablefalse"-->
+<!--                        android:hint="ex) www.ANSK.co.kr"-->
+<!--                        android:lines="2"-->
+<!--                        android:clickable="false"-->
+<!--                        android:focusable="false"-->
+<!--                        android:maxLines="1"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="15dp"-->
+<!--                        app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning11"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toEndOf="@+id/buttontext21"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/txtEditTextBodyBody1" />-->
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                    <TextView-->
+<!--                        android:id="@+id/buttontext21"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="링크 : "-->
+<!--                        android:textColor="@android:color/black"-->
+<!--                        android:fontFamily="@font/g_medium"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="@+id/txtEditTextBodyBodyLink1"-->
+<!--                        app:layout_constraintBottom_toBottomOf="@+id/txtEditTextBodyBodyLink1"-->
+<!--                        android:layout_marginStart="20dp"/>-->
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/bodyTextWarning11"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="15dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_marginEnd="15dp"-->
+<!--                        android:layout_marginBottom="5dp"-->
+<!--                        android:text="- 대문자+소문자+숫자 소합으로 입력해 주세요."-->
+<!--                        android:textColor="@color/kakaoUnSelect"-->
+<!--                        app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning12"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@id/txtEditTextBodyBodyLink1" />-->
+
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/bodyTextWarning12"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="15dp"-->
+<!--                        android:layout_marginEnd="15dp"-->
+<!--                        android:layout_marginBottom="5dp"-->
+<!--                        android:text="- 8자 이상으로 입력해 주세요."-->
+<!--                        android:textColor="@color/kakaoUnSelect"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/bodyTextWarning11" />-->
+
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

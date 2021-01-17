@@ -11,6 +11,8 @@
         android:required="true" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <uses-permission android:name="com.android.vending.BILLING" />
+
     <application
         android:name=".GlobalApplication"
         android:allowBackup="true"
@@ -28,13 +30,13 @@
         <activity android:name=".LoginActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".SelectActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".OnBoardActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SelectActivity"
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

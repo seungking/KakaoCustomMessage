@@ -72,6 +72,8 @@ class CreateFeedActivity : AppCompatActivity() {
         mInflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater?
         rootView = findViewById(R.id.rootView)
         screenLoading = mInflater!!.inflate(R.layout.layout_loading, null)
+        screenLoading!!.isClickable = true
+
 
         ///////////////////////////////////////////////////////////
         // [START storage_field_initialization]
@@ -102,19 +104,6 @@ class CreateFeedActivity : AppCompatActivity() {
         createBackBtn.setOnClickListener {
             finish()
         }
-
-
-        val defaultLocation = LocationTemplate(
-            address = "경기 성남시 분당구 판교역로 235 에이치스퀘어 N동 8층",
-            addressTitle = "카카오 판교오피스 카페톡",
-            content = Content(
-                title = title,
-                description = text,
-                imageUrl = stringUri.toString(),
-                link = Link(
-                )
-            )
-        )
 
         sendBtn.setOnClickListener{
 
@@ -174,6 +163,8 @@ class CreateFeedActivity : AppCompatActivity() {
                         }
 
                 }
+            } else {
+                sendMessage()
             }
 
         }
@@ -226,31 +217,39 @@ class CreateFeedActivity : AppCompatActivity() {
 
 
     fun sendMessage(){
-        val defaultFeed = FeedTemplate(
-            content = Content(
-                title = title,
-                description = text,
-                imageUrl = stringUri.toString(),
-                link = Link(
-                )
-            ),
-            buttons = listOf(
-                Button(
-                    button1link,
-                    Link(
-                        webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button1linkLink",
-                        mobileWebUrl = "https://m.search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button1linkLink"
+
+        var defaultFeed : FeedTemplate? = null
+
+
+            Log.d("loggg", "CreateFeed no image")
+            defaultFeed = FeedTemplate(
+                content = Content(
+                    title = title,
+                    description = text,
+                    imageUrl = stringUri,
+                    link = Link(
+                        webUrl = "https://play.google.com/store/apps/details?id=com.imageliner",
+                        mobileWebUrl = "https://play.google.com/store/apps/details?id=com.imageliner"
                     )
                 ),
-                Button(
-                    button2link,
-                    Link(
-                        webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button2linkLink",
-                        mobileWebUrl = "https://m.search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button2linkLink"
+                buttons = listOf(
+                    Button(
+                        button1link,
+                        Link(
+                            webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button1linkLink",
+                            mobileWebUrl = "https://m.search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button1linkLink"
+                        )
+                    ),
+                    Button(
+                        button2link,
+                        Link(
+                            webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button2linkLink",
+                            mobileWebUrl = "https://m.search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button2linkLink"
+                        )
                     )
                 )
             )
-        )
+
 
 
         TalkApiClient.instance.sendDefaultMemo(defaultFeed) { error ->

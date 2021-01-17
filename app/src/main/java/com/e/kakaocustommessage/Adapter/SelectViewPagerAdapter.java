@@ -22,24 +22,38 @@ public class SelectViewPagerAdapter extends PagerAdapter {
         this.context = context;
     }
 
+//    //설정 값들 선언
+//    private int images[] ={
+//            R.drawable.logo,
+//            R.drawable.logo2,
+//            R.drawable.logo
+//    };
+
     //설정 값들 선언
     private int images[] ={
-            R.drawable.logo,
-            R.drawable.logo2,
-            R.drawable.logo
+            R.drawable.exx1,
+            R.drawable.exx2
     };
 
+//    private String titles[] ={
+//            "텍스트 템플릿",
+//            "피드 템플릿",
+//            "주소 템플릿"
+//    };
     private String titles[] ={
             "텍스트 템플릿",
-            "피드 템플릿",
-            "주소 템플릿"
+            "피드 템플릿"
     };
 
     private String descs[] ={
-            "앱의 절전 모드를 꺼주세요. 정상 작동이 불가능할 수 있습니다. \n 앱을 완전히 끄지 말아주세요. 서비스 이용에 제한됩니다. :(",
-            "오른쪽 상단의 메세지 추가 아이콘을 클릭하고 친구 목록 중 보낼 친구를 선택해주세요 :)",
-            "예약할 날짜, 시간을 선택하고 예약 메세지를 입력해주세요 :)"
+            " - 최대 200자의 텍스트\n - 최대 2개의 버튼",
+            " - 최대 1개의 이미지\n - 제목, 내용 분리 텍스트\n - 최대 2개의 버튼"
     };
+//    private String descs[] ={
+//            "앱의 절전 모드를 꺼주세요. 정상 작동이 불가능할 수 있습니다. \n 앱을 완전히 끄지 말아주세요. 서비스 이용에 제한됩니다. :(",
+//            "오른쪽 상단의 메세지 추가 아이콘을 클릭하고 친구 목록 중 보낼 친구를 선택해주세요 :)",
+//            "예약할 날짜, 시간을 선택하고 예약 메세지를 입력해주세요 :)"
+//    };
 
     @Override
     public int getCount() {

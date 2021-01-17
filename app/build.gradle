@@ -73,4 +73,8 @@ dependencies {
 
     implementation "com.google.firebase:firebase-storage-ktx:19.2.0"
 
+    implementation 'com.android.billingclient:billing:2.1.0'
+    implementation 'com.anjlab.android.iab.v3:library:1.0.44'
+
+    implementation 'com.github.thomhurst:ExpandableHintText:1.0.7'
 }
