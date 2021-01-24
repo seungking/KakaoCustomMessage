@@ -25,6 +25,7 @@ import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 import com.kakao.sdk.talk.TalkApiClient
 import com.kakao.sdk.template.model.*
+import com.tomlonghurst.expandablehinttext.ExpandableHintText
 import kotlinx.android.synthetic.main.activity_create_text.*
 import java.io.ByteArrayOutputStream
 
@@ -50,11 +51,14 @@ class CreateTextActivity : AppCompatActivity() {
 
     var tempKey = Helper().uniqueID
 
+    var contentExpandEditText : ExpandableHintText? = null
+    var contentExpandButtonText : ExpandableHintText? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
+//        window.setFlags(
+//            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+//            WindowManager.LayoutParams.FLAG_FULLSCREEN
+//        )
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_text)
 
@@ -154,10 +158,10 @@ class CreateTextActivity : AppCompatActivity() {
     fun sendMessageWithButton(){
 
         val defaultText = TextTemplate(
-            text = title,
+            text = contentExpandEditText?.text!!,
             link = Link(
-                webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button1link",
-                mobileWebUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button1link"
+                webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=${contentExpandButtonText?.text!!}",
+                mobileWebUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=${contentExpandButtonText?.text!!}"
             )
         )
 

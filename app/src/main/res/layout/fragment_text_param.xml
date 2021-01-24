@@ -76,6 +76,7 @@
                         android:layout_marginEnd="15dp"
                         android:layout_marginBottom="5dp"
                         android:padding="5dp"
+                        android:textSize="15dp"
                         android:text="내용"
                         android:textColor="@android:color/black"
                         android:fontFamily="@font/g_medium"
@@ -96,23 +97,42 @@
                         app:layout_constraintStart_toEndOf="@+id/TitleBodyText"
                         app:layout_constraintTop_toTopOf="@+id/TitleBodyText" />
 
-                    <EditText
-                        android:id="@+id/txtEditTitleBody"
+<!--                    <EditText-->
+<!--                        android:id="@+id/txtEditTitleBody"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginStart="15dp"-->
+<!--                        android:layout_marginEnd="15dp"-->
+<!--                        android:background="@drawable/cornersbutton"-->
+<!--                        android:hint=""-->
+<!--                        android:lines="10"-->
+<!--                        android:minHeight="50dp"-->
+<!--                        android:maxLines="1"-->
+<!--                        android:padding="5dp"-->
+<!--                        android:textSize="15dp"-->
+<!--                        android:visibility="invisible"-->
+<!--                        app:layout_constraintBottom_toTopOf="@+id/TitleWarning1"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/TitleBodyText" />-->
+
+                    <com.tomlonghurst.expandablehinttext.ExpandableHintText
+                        android:id="@+id/expand_text_content"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:textColor="#222222"
+                        android:hint="네이버 검색어"
+                        android:animateLayoutChanges="false"
+                        app:textBoxColor="@android:color/white"
+                        app:floatingLabelColor="@android:color/transparent"
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
-                        android:background="@drawable/cornersbutton"
-                        android:hint=""
-                        android:lines="10"
-                        android:minHeight="50dp"
-                        android:maxLines="1"
-                        android:padding="5dp"
-                        android:textSize="15dp"
+                        app:layout_constraintHorizontal_bias="0.494"
                         app:layout_constraintBottom_toTopOf="@+id/TitleWarning1"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/TitleBodyText" />
+                        app:layout_constraintTop_toBottomOf="@+id/TitleBodyText"
+                        />
 
                     <TextView
                         android:id="@+id/TitleWarning1"
@@ -122,11 +142,12 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="15dp"
                         android:layout_marginBottom="5dp"
-                        android:text="- 대문자+소문자+숫자 소합으로 입력해 주세요."
+                        android:textSize="13dp"
+                        android:text="- 미리보기와 전송을 통하여 확인해주세요."
                         android:textColor="@color/kakaoUnSelect"
                         app:layout_constraintBottom_toTopOf="@+id/TitleWarning2"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/txtEditTitleBody" />
+                        app:layout_constraintTop_toBottomOf="@id/expand_text_content" />
 
 
                     <TextView
@@ -135,6 +156,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
+                        android:visibility="gone"
                         android:layout_marginBottom="5dp"
                         android:text="- 8자 이상으로 입력해 주세요."
                         android:textColor="@color/kakaoUnSelect"
@@ -188,11 +210,30 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divBodyTxt">
 
+                    <TextView
+                        android:id="@+id/BodyBodyText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:padding="5dp"
+                        android:text="버튼 1"
+                        android:fontFamily="@font/g_medium"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintHorizontal_bias="0.494"
+                        android:visibility="invisible"
+                        app:layout_constraintStart_toEndOf="@+id/checkboxButton1"
+                        app:layout_constraintTop_toTopOf="@+id/checkboxButton1" />
+
                     <androidx.appcompat.widget.AppCompatCheckBox
                         android:id="@+id/checkboxButton1"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="50dp"
                         android:textColorLink="#535050"
+                        android:text="버튼"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/g_medium"
+                        android:textColor="@android:color/black"
                         app:layout_constraintBottom_toBottomOf="@+id/BodyBodyText"
                         app:layout_constraintStart_toStartOf="@+id/buttontext1"
                         app:layout_constraintTop_toTopOf="@+id/BodyBodyText" />
@@ -201,14 +242,17 @@
                         android:id="@+id/expand_activities_button"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textColor="#222222"
                         android:hint="네이버 검색어"
                         app:textBoxColor="@android:color/white"
-                        app:floatingLabelColor="@android:color/white"
+                        app:floatingLabelColor="@android:color/transparent"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
                         app:layout_constraintHorizontal_bias="0.494"
-                        app:layout_constraintStart_toEndOf="@+id/checkboxButton1"
-                        app:layout_constraintTop_toTopOf="@+id/checkboxButton1"
+                        app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning1"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/BodyBodyText"
                         />
 
 
@@ -221,25 +265,25 @@
                         android:fontFamily="@font/g_medium"
                         android:visibility="invisible"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/txtEditTextBodyBody"
-                        app:layout_constraintBottom_toBottomOf="@+id/txtEditTextBodyBody"
+                        app:layout_constraintTop_toTopOf="@+id/expand_activities_button"
+                        app:layout_constraintBottom_toBottomOf="@+id/expand_activities_button"
                         android:layout_marginStart="20dp"/>
 
                     <EditText
                         android:id="@+id/txtEditTextBodyBody"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_width="317dp"
+                        android:layout_height="31dp"
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="15dp"
                         android:background="@drawable/cornerclickablefalse"
+                        android:focusableInTouchMode="false"
                         android:hint="ex) 홈페이지"
                         android:lines="1"
                         android:maxLines="1"
                         android:padding="5dp"
                         android:textSize="15dp"
                         android:visibility="invisible"
-                        android:focusableInTouchMode="false"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/buttontext1"
                         app:layout_constraintTop_toBottomOf="@+id/BodyBodyText" />
@@ -254,6 +298,7 @@
                         android:layout_marginEnd="15dp"
                         android:layout_marginBottom="5dp"
                         android:text=" - 버튼명은 8자 이하를 권장합니다."
+                        android:textSize="13dp"
                         android:textColor="@color/kakaoUnSelect"
                         app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning2"
                         app:layout_constraintStart_toStartOf="@+id/expand_activities_button"
@@ -269,6 +314,7 @@
                         android:layout_marginBottom="5dp"
                         android:text="- 네이버 검색으로 이동합니다."
                         android:textColor="@color/kakaoUnSelect"
+                        android:textSize="13dp"
                         app:layout_constraintStart_toStartOf="@+id/expand_activities_button"
                         app:layout_constraintTop_toBottomOf="@+id/bodyTextWarning1" />
 

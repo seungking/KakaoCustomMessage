@@ -29,6 +29,8 @@ import androidx.core.content.FileProvider
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import com.e.kakaocustommessage.R
+import com.tomlonghurst.expandablehinttext.ExpandableEditText
+import com.tomlonghurst.expandablehinttext.ExpandableHintText
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.fragment_text_param.*
 import java.io.File
@@ -62,15 +64,15 @@ class TextParamFragment : Fragment() {
         }
 
 
-        val txtEditTitleBody = mview?.findViewById<EditText>(R.id.txtEditTitleBody)
-        txtEditTitleBody?.addTextChangedListener {
-            (activity as CreateTextActivity).title = txtEditTitleBody.text.toString()
-        }
+        (activity as CreateTextActivity).contentExpandEditText = mview?.findViewById<ExpandableHintText>(R.id.expand_text_content)
+//        txtEditTitleBody?.addTextChangedListener {
+//            (activity as CreateTextActivity).title = txtEditTitleBody.text.toString()
+//        }
 
-        val txtEditTextBodyBody = mview?.findViewById<EditText>(R.id.txtEditTextBodyBody)
-        txtEditTextBodyBody?.addTextChangedListener {
-            (activity as CreateTextActivity).button1link = txtEditTextBodyBody.text.toString()
-        }
+        (activity as CreateTextActivity).contentExpandButtonText = mview?.findViewById<ExpandableHintText>(R.id.expand_activities_button)
+//        txtEditTextBodyBody?.addTextChangedListener {
+//            (activity as CreateTextActivity).button1link = txtEditTextBodyBody.text.toString()
+//        }
 
         val checkboxButton1 = mview?.findViewById<CheckBox>(R.id.checkboxButton1)
         checkboxButton1?.setOnClickListener {
