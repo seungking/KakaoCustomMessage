@@ -22,8 +22,11 @@ class TextPreviewFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        if((activity as CreateTextActivity).contentExpandEditText!!.text!!.length==0) textPreviewText.visibility = View.GONE
-        textPreviewText.text = (activity as CreateTextActivity).contentExpandEditText!!.text
+//        if((activity as CreateTextActivity).contentExpandEditText!!.text!!.length==0) textPreviewText.visibility = View.GONE
+//        textPreviewText.text = (activity as CreateTextActivity).contentExpandEditText!!.text
+
+        if((activity as CreateTextActivity).contentMaterialEditText!!.text!!.length==0) textPreviewText.visibility = View.GONE
+        textPreviewText.text = (activity as CreateTextActivity).contentMaterialEditText!!.text.toString()
 
         if((activity as CreateTextActivity).button1Checked) {
             button1.visibility = View.VISIBLE

@@ -1,64 +1,46 @@
 package com.e.kakaocustommessage.CreateText
 
-import android.content.Context
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.e.kakaocustommessage.Helper
 import com.e.kakaocustommessage.R
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
-import com.google.firebase.storage.ktx.storage
 import com.kakao.sdk.talk.TalkApiClient
 import com.kakao.sdk.template.model.*
-import com.tomlonghurst.expandablehinttext.ExpandableHintText
+import com.rengwuxian.materialedittext.MaterialEditText
 import kotlinx.android.synthetic.main.activity_create_text.*
-import java.io.ByteArrayOutputStream
 
 
 class CreateTextActivity : AppCompatActivity() {
 
     var fragmentManager: FragmentManager? = null
-
-    var title : String = ""
     var text : String = ""
     var button1Checked : Boolean = false
-    var button1link : String = ""
-    var button1linkLink : String = ""
     var imageBitmap : Bitmap? = null
     var imageURL : Uri? = null
     lateinit var mAdView : AdView
-
-    var stringUri : String = ""
 
     var mInflater : LayoutInflater? = null
     var rootView : ConstraintLayout? = null
     var screenLoading : View? = null
 
-    var tempKey = Helper().uniqueID
+    var contentMaterialEditText : MaterialEditText? = null
+    var buttonMaterialEditText : MaterialEditText? = null
+    var buttonLinkMaterialEditText : MaterialEditText? = null
 
-    var contentExpandEditText : ExpandableHintText? = null
-    var contentExpandButtonText : ExpandableHintText? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-//        window.setFlags(
-//            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//            WindowManager.LayoutParams.FLAG_FULLSCREEN
-//        )
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_text)
 
@@ -141,8 +123,20 @@ class CreateTextActivity : AppCompatActivity() {
     fun sendMessage(){
 
         val defaultText = TextTemplate(
-            text = title,
-            link = Link()
+            text = contentMaterialEditText!!.text.toString(),
+            link = Link(
+                webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=${buttonMaterialEditText?.text!!.toString()}",
+                mobileWebUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=${buttonMaterialEditText?.text!!.toString()}"
+            ),
+            buttons = listOf(
+                Button(
+                    "",
+                    Link(
+                        webUrl = "",
+                        mobileWebUrl = ""
+                    )
+                )
+            )
         )
 
         TalkApiClient.instance.sendDefaultMemo(defaultText) { error ->
@@ -158,10 +152,19 @@ class CreateTextActivity : AppCompatActivity() {
     fun sendMessageWithButton(){
 
         val defaultText = TextTemplate(
-            text = contentExpandEditText?.text!!,
+            text = contentMaterialEditText!!.text.toString(),
             link = Link(
-                webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=${contentExpandButtonText?.text!!}",
-                mobileWebUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=${contentExpandButtonText?.text!!}"
+                webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=${buttonMaterialEditText?.text!!.toString()}",
+                mobileWebUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=${buttonMaterialEditText?.text!!.toString()}"
+            ),
+            buttons = listOf(
+                Button(
+                    buttonMaterialEditText?.text!!.toString(),
+                    Link(
+                        webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=${buttonLinkMaterialEditText?.text!!.toString()}",
+                        mobileWebUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=${buttonLinkMaterialEditText?.text!!.toString()}"
+                    )
+                )
             )
         )
 
