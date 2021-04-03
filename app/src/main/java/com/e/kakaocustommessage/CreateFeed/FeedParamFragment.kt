@@ -21,6 +21,8 @@ import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageView
+import androidx.appcompat.widget.AppCompatButton
+import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.browser.customtabs.CustomTabsClient.getPackageName
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
@@ -29,6 +31,7 @@ import androidx.core.content.FileProvider
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import com.e.kakaocustommessage.R
+import com.rengwuxian.materialedittext.MaterialEditText
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.fragment_feed_param.*
 import kotlinx.android.synthetic.main.fragment_text_param.*
@@ -87,35 +90,35 @@ class FeedParamFragment : Fragment() {
             dispatchTakePictureIntent()
         }
 
-        val txtEditTitleBody = mview?.findViewById<EditText>(R.id.txtEditTitleBody)
+        val txtEditTitleBody = mview?.findViewById<MaterialEditText>(R.id.txtEditTitleBody)
         txtEditTitleBody?.addTextChangedListener {
             (activity as CreateFeedActivity).title = txtEditTitleBody.text.toString()
         }
-        val txtEditTextBody = mview?.findViewById<EditText>(R.id.txtEditTextBody)
+        val txtEditTextBody = mview?.findViewById<MaterialEditText>(R.id.txtEditTextBody)
         txtEditTextBody?.addTextChangedListener {
             (activity as CreateFeedActivity).text = txtEditTextBody.text.toString()
         }
 
-        val txtEditTextBodyBodyLink = mview?.findViewById<EditText>(R.id.txtEditTextBodyBodyLink)
+        val txtEditTextBodyBodyLink = mview?.findViewById<MaterialEditText>(R.id.txtEditTextBodyBodyLink)
         txtEditTextBodyBodyLink?.addTextChangedListener {
             (activity as CreateFeedActivity).button1linkLink =
                 txtEditTextBodyBodyLink.text.toString()
         }
-        val txtEditTextBodyBodyLink1 = mview?.findViewById<EditText>(R.id.txtEditTextBodyBodyLink1)
+        val txtEditTextBodyBodyLink1 = mview?.findViewById<MaterialEditText>(R.id.txtEditTextBodyBodyLink1)
         txtEditTextBodyBodyLink1?.addTextChangedListener {
             (activity as CreateFeedActivity).button2linkLink =
                 txtEditTextBodyBodyLink1.text.toString()
         }
-        val txtEditTextBodyBody = mview?.findViewById<EditText>(R.id.txtEditTextBodyBody)
+        val txtEditTextBodyBody = mview?.findViewById<MaterialEditText>(R.id.txtEditTextBodyBody)
         txtEditTextBodyBody?.addTextChangedListener {
             (activity as CreateFeedActivity).button1link = txtEditTextBodyBody.text.toString()
         }
-        val txtEditTextBodyBody1 = mview?.findViewById<EditText>(R.id.txtEditTextBodyBody1)
+        val txtEditTextBodyBody1 = mview?.findViewById<MaterialEditText>(R.id.txtEditTextBodyBody1)
         txtEditTextBodyBody1?.addTextChangedListener {
             (activity as CreateFeedActivity).button2link = txtEditTextBodyBody1.text.toString()
         }
 
-        val checkboxButton1 = mview?.findViewById<CheckBox>(R.id.checkboxButton1)
+        val checkboxButton1 = mview?.findViewById<AppCompatCheckBox>(R.id.checkboxButton1)
         checkboxButton1?.setOnClickListener {
             (activity as CreateFeedActivity).button1Checked = checkboxButton1!!.isChecked
 
@@ -129,9 +132,6 @@ class FeedParamFragment : Fragment() {
                 txtEditTextBodyBody!!.isFocusableInTouchMode = true
                 txtEditTextBodyBodyLink!!.isFocusableInTouchMode = true
 
-                txtEditTextBodyBody!!.background = requireContext().getDrawable(R.drawable.cornerswhite)
-                txtEditTextBodyBodyLink!!.background = requireContext().getDrawable(R.drawable.cornerswhite)
-
 //                Log.d("logggg", "button1 clicked + ${txtEditTextBodyBody.isFocusable}  ${txtEditTextBodyBodyLink.isClickable}")
             } else {
 
@@ -143,13 +143,10 @@ class FeedParamFragment : Fragment() {
                 txtEditTextBodyBody!!.isFocusableInTouchMode = false
                 txtEditTextBodyBodyLink!!.isFocusableInTouchMode = false
 
-                txtEditTextBodyBody!!.background = requireContext().getDrawable(R.drawable.cornerclickablefalse)
-                txtEditTextBodyBodyLink!!.background = requireContext().getDrawable(R.drawable.cornerclickablefalse)
-
 //                Log.d("logggg", "button1 unclicked + ${txtEditTextBodyBody.isFocusable}  ${txtEditTextBodyBodyLink.isClickable}")
             }
         }
-        val checkboxButton11 = mview?.findViewById<CheckBox>(R.id.checkboxButton11)
+        val checkboxButton11 = mview?.findViewById<AppCompatCheckBox>(R.id.checkboxButton11)
         checkboxButton11?.setOnClickListener {
             (activity as CreateFeedActivity).button2Checked = checkboxButton11.isChecked
 
@@ -161,9 +158,6 @@ class FeedParamFragment : Fragment() {
                 txtEditTextBodyBody1!!.isFocusableInTouchMode = false
                 txtEditTextBodyBodyLink1!!.isFocusableInTouchMode = false
 
-                txtEditTextBodyBody1!!.background = requireContext().getDrawable(R.drawable.cornerclickablefalse)
-                txtEditTextBodyBodyLink1!!.background = requireContext().getDrawable(R.drawable.cornerclickablefalse)
-
                 Log.d("logggg", "button2 unclicked + ${txtEditTextBodyBody1.isFocusable}  ${txtEditTextBodyBodyLink1.isClickable}")
             } else {
 
@@ -172,9 +166,6 @@ class FeedParamFragment : Fragment() {
 
                 txtEditTextBodyBody1!!.isFocusableInTouchMode = true
                 txtEditTextBodyBodyLink1!!.isFocusableInTouchMode = true
-
-                txtEditTextBodyBody1!!.background = requireContext().getDrawable(R.drawable.cornerswhite)
-                txtEditTextBodyBodyLink1!!.background = requireContext().getDrawable(R.drawable.cornerswhite)
 
                 Log.d("logggg", "button2 clicked + ${txtEditTextBodyBody1.isFocusable}  ${txtEditTextBodyBodyLink1.isClickable}")
             }

@@ -18,6 +18,7 @@ import com.google.android.gms.ads.MobileAds
 import com.kakao.sdk.talk.TalkApiClient
 import com.kakao.sdk.template.model.*
 import com.rengwuxian.materialedittext.MaterialEditText
+import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_create_text.*
 
 
@@ -122,11 +123,12 @@ class CreateTextActivity : AppCompatActivity() {
 
     fun sendMessage(){
 
+        ///https://play.google.com/store/apps/details?id=com.e.namematching
         val defaultText = TextTemplate(
             text = contentMaterialEditText!!.text.toString(),
             link = Link(
-                webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=${buttonMaterialEditText?.text!!.toString()}",
-                mobileWebUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=${buttonMaterialEditText?.text!!.toString()}"
+                webUrl = "https://play.google.com/store/apps/details?id=com.e.namematching",
+                mobileWebUrl = "https://play.google.com/store/apps/details?id=com.e.namematching"
             ),
             buttons = listOf(
                 Button(
@@ -143,8 +145,10 @@ class CreateTextActivity : AppCompatActivity() {
             rootView!!.removeView(screenLoading)
             if (error != null) {
                 Log.e("log1", "나에게 보내기 실패", error)
+                Toasty.error(this, "나에게 보내기 실패").show()
             } else {
                 Log.i("log1", "나에게 보내기 성공")
+                Toasty.success(this, "나에게 보내기 성공").show()
             }
         }
     }
@@ -154,8 +158,8 @@ class CreateTextActivity : AppCompatActivity() {
         val defaultText = TextTemplate(
             text = contentMaterialEditText!!.text.toString(),
             link = Link(
-                webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=${buttonMaterialEditText?.text!!.toString()}",
-                mobileWebUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=${buttonMaterialEditText?.text!!.toString()}"
+                webUrl = "https://play.google.com/store/apps/details?id=com.e.namematching",
+                mobileWebUrl = "https://play.google.com/store/apps/details?id=com.e.namematching"
             ),
             buttons = listOf(
                 Button(

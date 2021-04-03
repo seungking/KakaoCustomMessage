@@ -27,6 +27,7 @@ import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 import com.kakao.sdk.talk.TalkApiClient
 import com.kakao.sdk.template.model.*
+import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_create_text.*
 import java.io.ByteArrayOutputStream
 
@@ -228,9 +229,9 @@ class CreateFeedActivity : AppCompatActivity() {
                     description = text,
                     imageUrl = stringUri,
                     link = Link(
-                        webUrl = "https://play.google.com/store/apps/details?id=com.imageliner",
-                        mobileWebUrl = "https://play.google.com/store/apps/details?id=com.imageliner"
-                    )
+                        webUrl = "https://play.google.com/store/apps/details?id=com.e.namematching",
+                        mobileWebUrl = "https://play.google.com/store/apps/details?id=com.e.namematching"
+                    ),
                 ),
                 buttons = listOf(
                     Button(
@@ -256,9 +257,11 @@ class CreateFeedActivity : AppCompatActivity() {
             rootView!!.removeView(screenLoading)
             if (error != null) {
                 Log.e("log1", "나에게 보내기 실패", error)
+                Toasty.error(this, "나에게 보내기 실패").show()
             } else {
                 Log.i("log1", "나에게 보내기 성공")
 //                imagesRef!!.delete()
+                Toasty.success(this, "나에게 보내기 성공").show()
             }
         }
     }

@@ -25,9 +25,9 @@
             android:text="아아아아아아아아아아아아아아아아아아아아"
             android:fontFamily="@font/g_medium"
             android:textSize="13.5dp"
-            android:maxLines="2"
+            android:maxLines="100"
             android:paddingHorizontal="19.5dp"
-            android:paddingTop="7dp"/>
+            android:paddingTop="15dp"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

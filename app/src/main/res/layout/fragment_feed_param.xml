@@ -37,7 +37,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginBottom="0dp"
                     android:text="이미지 등록"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@android:color/black"
@@ -53,6 +53,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
                     android:background="@android:color/black"
+                    android:visibility="gone"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/PhotoTxt" />
@@ -90,8 +91,8 @@
 
                             <ImageView
                                 android:id="@+id/selectAlbum"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
                                 android:scaleType="centerInside"
                                 android:focusable="false"
                                 android:src="@drawable/album"/>
@@ -119,8 +120,8 @@
 
                             <ImageView
                                 android:id="@+id/selectCamera"
-                                android:layout_width="50dp"
-                                android:layout_height="50dp"
+                                android:layout_width="45dp"
+                                android:layout_height="45dp"
                                 android:scaleType="centerInside"
                                 android:src="@drawable/photo" />
 
@@ -142,9 +143,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="0dp"
                         android:layout_marginEnd="15dp"
-                        android:layout_marginBottom="5dp"
+                        android:layout_marginBottom="0dp"
+                        android:visibility="gone"
                         android:text="- 대문자+소문자+숫자 소합으로 입력해 주세요."
                         android:textColor="@color/kakaoUnSelect"
                         app:layout_constraintStart_toStartOf="parent"
@@ -157,8 +159,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
-                        android:layout_marginBottom="5dp"
+                        android:layout_marginBottom="0dp"
                         android:text="- 8자 이상으로 입력해 주세요."
+                        android:visibility="gone"
                         android:textColor="@color/kakaoUnSelect"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/photoWarning1" />
@@ -166,9 +169,10 @@
                     <ImageView
                         android:id="@+id/photoImg"
                         android:layout_width="match_parent"
-                        android:layout_height="300dp"
+                        android:layout_height="250dp"
                         android:adjustViewBounds="true"
-                        android:layout_margin="20dp"
+                        android:layout_marginHorizontal="15dp"
+                        android:paddingVertical="10dp"
                         android:scaleType="fitCenter"
                         android:clickable="false"
                         android:visibility="gone"
@@ -183,13 +187,13 @@
                         app:layout_constraintStart_toStartOf="@+id/photoImg"
                         app:layout_constraintEnd_toEndOf="@id/photoImg"
                         app:layout_constraintTop_toBottomOf="@+id/photoImg"
-                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginHorizontal="50dp"
                         android:text="삭제"
                         android:fontFamily="@font/g_medium"
                         android:background="@drawable/cornerswhite"
                         android:textSize="14sp"
                         android:visibility="gone"
-                        android:layout_marginTop="20dp"/>
+                        android:height="30dp" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -199,7 +203,7 @@
                 android:id="@+id/sectionText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:background="@color/colorTrans">
 
                 <TextView
@@ -209,7 +213,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginBottom="16dp"
                     android:text="텍스트 설정"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@android:color/black"
@@ -222,8 +226,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginStart="15dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="0dp"
                     android:layout_marginEnd="15dp"
+                    android:visibility="gone"
                     android:background="@android:color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -233,7 +238,7 @@
                     android:id="@+id/sectionTitleBody"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="0dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divTextTxt">
@@ -250,6 +255,7 @@
                         android:text="제목"
                         android:textColor="@android:color/black"
                         android:fontFamily="@font/g_medium"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toTopOf="@+id/txtEditTitleBody"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -262,23 +268,24 @@
                         android:text="2줄까지 가능합니다"
                         android:textColor="@android:color/black"
                         android:textSize="12dp"
-                        android:visibility="visible"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="@+id/TitleBodyText"
                         app:layout_constraintStart_toEndOf="@+id/TitleBodyText"
                         app:layout_constraintTop_toTopOf="@+id/TitleBodyText" />
 
-                    <EditText
+                    <com.rengwuxian.materialedittext.MaterialEditText
                         android:id="@+id/txtEditTitleBody"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
-                        android:background="@drawable/cornersbutton"
-                        android:hint=""
-                        android:lines="2"
-                        android:maxLines="1"
-                        android:padding="5dp"
-                        android:textSize="15dp"
+                        app:layout_constraintHorizontal_bias="0.494"
+                        android:hint="제목을 적어주세요 (최대 2줄)"
+                        android:textSize="14sp"
+                        app:met_baseColor="#222222"
+                        android:maxLines="2"
+                        app:met_floatingLabel="highlight"
+                        app:met_primaryColor="?colorAccent"
                         app:layout_constraintBottom_toTopOf="@+id/TitleWarning1"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -291,6 +298,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="15dp"
+                        android:visibility="gone"
                         android:layout_marginBottom="5dp"
                         android:text="- 대문자+소문자+숫자 소합으로 입력해 주세요."
                         android:textColor="@color/kakaoUnSelect"
@@ -305,6 +313,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
+                        android:visibility="gone"
                         android:layout_marginBottom="5dp"
                         android:text="- 8자 이상으로 입력해 주세요."
                         android:textColor="@color/kakaoUnSelect"
@@ -317,7 +326,7 @@
                     android:id="@+id/sectionTextBody"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="0dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/sectionTitleBody">
@@ -327,11 +336,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="0dp"
                         android:layout_marginEnd="15dp"
                         android:layout_marginBottom="5dp"
                         android:padding="5dp"
                         android:text="내용"
+                        android:visibility="gone"
                         android:textColor="@android:color/black"
                         android:fontFamily="@font/g_medium"
                         app:layout_constraintBottom_toTopOf="@+id/txtEditTextBody"
@@ -346,23 +356,24 @@
                         android:text="2줄까지 가능합니다"
                         android:textColor="@android:color/black"
                         android:textSize="12dp"
-                        android:visibility="visible"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="@+id/TextBodyText"
                         app:layout_constraintStart_toEndOf="@+id/TextBodyText"
                         app:layout_constraintTop_toTopOf="@+id/TextBodyText" />
 
-                    <EditText
+                    <com.rengwuxian.materialedittext.MaterialEditText
                         android:id="@+id/txtEditTextBody"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
-                        android:background="@drawable/cornersbutton"
-                        android:hint=""
-                        android:lines="3"
-                        android:maxLines="1"
-                        android:padding="5dp"
-                        android:textSize="15dp"
+                        app:layout_constraintHorizontal_bias="0.494"
+                        android:hint="내용을 적어주세요 (최대 2줄)"
+                        android:textSize="14sp"
+                        app:met_baseColor="#222222"
+                        android:maxLines="2"
+                        app:met_floatingLabel="highlight"
+                        app:met_primaryColor="?colorAccent"
                         app:layout_constraintBottom_toTopOf="@+id/TextWarning1"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -378,6 +389,7 @@
                         android:layout_marginBottom="5dp"
                         android:text="- 대문자+소문자+숫자 소합으로 입력해 주세요."
                         android:textColor="@color/kakaoUnSelect"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toTopOf="@+id/TextWarning2"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/txtEditTextBody" />
@@ -392,6 +404,7 @@
                         android:layout_marginBottom="5dp"
                         android:text="- 8자 이상으로 입력해 주세요."
                         android:textColor="@color/kakaoUnSelect"
+                        android:visibility="gone"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/TextWarning1" />
 
@@ -413,7 +426,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginBottom="0dp"
                     android:text="버튼 설정"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@android:color/black"
@@ -428,6 +441,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="15dp"
+                    android:visibility="gone"
                     android:background="@android:color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -437,33 +451,25 @@
                     android:id="@+id/sectionBodyBody"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="0dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divBodyTxt">
 
-                    <TextView
-                        android:id="@+id/BodyBodyText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginEnd="15dp"
-                        android:padding="5dp"
-                        android:text="버튼 1"
-                        android:fontFamily="@font/g_medium"
-                        android:textColor="@android:color/black"
-                        app:layout_constraintHorizontal_bias="0.494"
-                        app:layout_constraintStart_toEndOf="@+id/checkboxButton1"
-                        app:layout_constraintTop_toTopOf="@+id/checkboxButton1" />
-
                     <androidx.appcompat.widget.AppCompatCheckBox
                         android:id="@+id/checkboxButton1"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="60dp"
+                        android:fontFamily="@font/g_medium"
+                        android:text="버튼 1"
+                        android:textColor="@android:color/black"
                         android:textColorLink="#535050"
-                        app:layout_constraintBottom_toBottomOf="@+id/BodyBodyText"
-                        app:layout_constraintStart_toStartOf="@+id/buttontext1"
-                        app:layout_constraintTop_toTopOf="@+id/BodyBodyText" />
+                        android:textSize="15dp"
+                        android:layout_marginStart="15dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:padding="5dp"
+                        tools:layout_editor_absoluteX="20dp" />
 
                     <TextView
                         android:id="@+id/buttontext1"
@@ -472,44 +478,44 @@
                         android:text="이름 : "
                         android:textColor="@android:color/black"
                         android:fontFamily="@font/g_medium"
+                        android:visibility="gone"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/txtEditTextBodyBody"
                         app:layout_constraintBottom_toBottomOf="@+id/txtEditTextBodyBody"
                         android:layout_marginStart="20dp"/>
 
-                    <EditText
+                    <com.rengwuxian.materialedittext.MaterialEditText
                         android:id="@+id/txtEditTextBodyBody"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
-                        android:layout_marginTop="10dp"
                         android:layout_marginEnd="15dp"
-                        android:background="@drawable/cornerclickablefalse"
-                        android:hint="ex) 홈페이지"
-                        android:lines="1"
-                        android:maxLines="1"
-                        android:padding="5dp"
-                        android:textSize="15dp"
+                        app:layout_constraintHorizontal_bias="0.494"
+                        android:hint="버튼명을 적어주세요(최대 8자)"
+                        android:textSize="14sp"
+                        app:met_baseColor="#222222"
+                        android:maxLength="8"
+                        app:met_floatingLabel="highlight"
+                        app:met_primaryColor="?colorAccent"
                         android:focusableInTouchMode="false"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/buttontext1"
-                        app:layout_constraintTop_toBottomOf="@+id/BodyBodyText" />
+                        app:layout_constraintTop_toBottomOf="@+id/checkboxButton1" />
 
 
-                    <EditText
+                    <com.rengwuxian.materialedittext.MaterialEditText
                         android:id="@+id/txtEditTextBodyBodyLink"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
-                        android:layout_marginTop="10dp"
                         android:layout_marginEnd="15dp"
-                        android:background="@drawable/cornerclickablefalse"
-                        android:hint="ex) www.ANSK.co.kr"
-                        android:focusableInTouchMode="false"
-                        android:lines="2"
-                        android:maxLines="1"
-                        android:padding="5dp"
-                        android:textSize="15dp"
+                        app:layout_constraintHorizontal_bias="0.494"
+                        android:hint="네이버 검색어 (버튼 클릭 시 이동)"
+                        android:textSize="14sp"
+                        app:met_baseColor="#222222"
+                        android:maxLength="8"
+                        app:met_floatingLabel="highlight"
+                        app:met_primaryColor="?colorAccent"
                         app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning1"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/buttontext2"
@@ -520,6 +526,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="링크 : "
+                        android:visibility="gone"
                         android:textColor="@android:color/black"
                         android:fontFamily="@font/g_medium"
                         app:layout_constraintStart_toStartOf="parent"
@@ -536,6 +543,7 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="15dp"
                         android:layout_marginBottom="5dp"
+                        android:visibility="gone"
                         android:text="- 대문자+소문자+숫자 소합으로 입력해 주세요."
                         android:textColor="@color/kakaoUnSelect"
                         app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning2"
@@ -551,6 +559,7 @@
                         android:layout_marginEnd="15dp"
                         android:layout_marginBottom="5dp"
                         android:text="- 8자 이상으로 입력해 주세요."
+                        android:visibility="gone"
                         android:textColor="@color/kakaoUnSelect"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/bodyTextWarning1" />
@@ -562,35 +571,26 @@
                     android:id="@+id/sectionBodyBody1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="0dp"
                     android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/sectionBodyBody">
 
-
-                    <TextView
-                        android:id="@+id/BodyBodyText1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginEnd="15dp"
-                        android:padding="5dp"
-                        android:text="버튼 2"
-                        android:fontFamily="@font/g_medium"
-                        android:textColor="@android:color/black"
-                        app:layout_constraintStart_toEndOf="@+id/checkboxButton11"
-                        app:layout_constraintTop_toTopOf="@+id/checkboxButton11" />
-
-
                     <androidx.appcompat.widget.AppCompatCheckBox
                         android:id="@+id/checkboxButton11"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="60dp"
+                        android:fontFamily="@font/g_medium"
+                        android:text="버튼 2"
+                        android:textColor="@android:color/black"
                         android:textColorLink="#535050"
-                        app:layout_constraintBottom_toTopOf="@+id/txtEditTextBodyBody1"
-                        app:layout_constraintStart_toStartOf="@+id/buttontext11"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:textSize="15dp"
+                        android:layout_marginStart="15dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:padding="5dp"
+                        tools:layout_editor_absoluteX="20dp" />
 
                     <TextView
                         android:id="@+id/buttontext11"
@@ -598,47 +598,44 @@
                         android:layout_height="wrap_content"
                         android:text="이름 : "
                         android:textColor="@android:color/black"
+                        android:visibility="gone"
                         android:fontFamily="@font/g_medium"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="@+id/txtEditTextBodyBody1"
                         app:layout_constraintBottom_toBottomOf="@+id/txtEditTextBodyBody1"
                         android:layout_marginStart="20dp"/>
 
-                    <EditText
+                    <com.rengwuxian.materialedittext.MaterialEditText
                         android:id="@+id/txtEditTextBodyBody1"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/cornerclickablefalse"
-                        android:hint="ex) 홈페이지"
-                        android:lines="1"
-                        android:maxLines="1"
-                        android:padding="5dp"
-                        android:clickable="false"
-                        android:focusable="false"
-                        android:textSize="15dp"
+                        app:layout_constraintHorizontal_bias="0.494"
+                        android:hint="버튼명을 적어주세요(최대 8자)"
+                        android:textSize="14sp"
+                        app:met_baseColor="#222222"
+                        android:maxLength="8"
+                        app:met_floatingLabel="highlight"
+                        app:met_primaryColor="?colorAccent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/buttontext11"
-                        app:layout_constraintTop_toBottomOf="@+id/BodyBodyText1" />
+                        app:layout_constraintTop_toBottomOf="@+id/checkboxButton11" />
 
 
-                    <EditText
+                    <com.rengwuxian.materialedittext.MaterialEditText
                         android:id="@+id/txtEditTextBodyBodyLink1"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/cornerclickablefalse"
-                        android:hint="ex) www.ANSK.co.kr"
-                        android:lines="2"
-                        android:clickable="false"
-                        android:focusable="false"
-                        android:maxLines="1"
-                        android:padding="5dp"
-                        android:textSize="15dp"
+                        app:layout_constraintHorizontal_bias="0.494"
+                        android:hint="네이버 검색어 (버튼 클릭 시 이동)"
+                        android:textSize="14sp"
+                        app:met_baseColor="#222222"
+                        android:maxLength="8"
+                        app:met_floatingLabel="highlight"
+                        app:met_primaryColor="?colorAccent"
                         app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning11"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/buttontext21"
@@ -649,6 +646,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="링크 : "
+                        android:visibility="gone"
                         android:textColor="@android:color/black"
                         android:fontFamily="@font/g_medium"
                         app:layout_constraintStart_toStartOf="parent"
@@ -663,6 +661,7 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="15dp"
+                        android:visibility="gone"
                         android:layout_marginBottom="5dp"
                         android:text="- 대문자+소문자+숫자 소합으로 입력해 주세요."
                         android:textColor="@color/kakaoUnSelect"
@@ -681,6 +680,7 @@
                         android:text="- 8자 이상으로 입력해 주세요."
                         android:textColor="@color/kakaoUnSelect"
                         app:layout_constraintStart_toStartOf="parent"
+                        android:visibility="gone"
                         app:layout_constraintTop_toBottomOf="@+id/bodyTextWarning11" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,7 +29,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="@color/colorTrans">
+                android:background="@color/colorTrans"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
 
                 <TextView
                     android:id="@+id/TextTxt"
@@ -38,7 +40,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginBottom="0dp"
                     android:text="텍스트 설정"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@android:color/black"
@@ -51,9 +53,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginStart="15dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="0dp"
                     android:layout_marginEnd="15dp"
                     android:background="@android:color/black"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/TextTxt" />
@@ -62,7 +65,7 @@
                     android:id="@+id/sectionTitleBody"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="0dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/divTextTxt">
@@ -75,11 +78,11 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="15dp"
                         android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/g_medium"
                         android:padding="5dp"
-                        android:textSize="15dp"
                         android:text="내용"
                         android:textColor="@android:color/black"
-                        android:fontFamily="@font/g_medium"
+                        android:textSize="15dp"
                         app:layout_constraintBottom_toTopOf="@+id/txtEditTitleBody"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -97,57 +100,58 @@
                         app:layout_constraintStart_toEndOf="@+id/TitleBodyText"
                         app:layout_constraintTop_toTopOf="@+id/TitleBodyText" />
 
-<!--                    <EditText-->
-<!--                        android:id="@+id/txtEditTitleBody"-->
-<!--                        android:layout_width="0dp"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_marginStart="15dp"-->
-<!--                        android:layout_marginEnd="15dp"-->
-<!--                        android:background="@drawable/cornersbutton"-->
-<!--                        android:hint=""-->
-<!--                        android:lines="10"-->
-<!--                        android:minHeight="50dp"-->
-<!--                        android:maxLines="1"-->
-<!--                        android:padding="5dp"-->
-<!--                        android:textSize="15dp"-->
-<!--                        android:visibility="invisible"-->
-<!--                        app:layout_constraintBottom_toTopOf="@+id/TitleWarning1"-->
-<!--                        app:layout_constraintEnd_toEndOf="parent"-->
-<!--                        app:layout_constraintStart_toStartOf="parent"-->
-<!--                        app:layout_constraintTop_toBottomOf="@+id/TitleBodyText" />-->
+                    <!--                    <EditText-->
+                    <!--                        android:id="@+id/txtEditTitleBody"-->
+                    <!--                        android:layout_width="0dp"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginStart="15dp"-->
+                    <!--                        android:layout_marginEnd="15dp"-->
+                    <!--                        android:background="@drawable/cornersbutton"-->
+                    <!--                        android:hint=""-->
+                    <!--                        android:lines="10"-->
+                    <!--                        android:minHeight="50dp"-->
+                    <!--                        android:maxLines="1"-->
+                    <!--                        android:padding="5dp"-->
+                    <!--                        android:textSize="15dp"-->
+                    <!--                        android:visibility="invisible"-->
+                    <!--                        app:layout_constraintBottom_toTopOf="@+id/TitleWarning1"-->
+                    <!--                        app:layout_constraintEnd_toEndOf="parent"-->
+                    <!--                        app:layout_constraintStart_toStartOf="parent"-->
+                    <!--                        app:layout_constraintTop_toBottomOf="@+id/TitleBodyText" />-->
 
                     <com.rengwuxian.materialedittext.MaterialEditText
                         android:id="@+id/contentMaterialEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint = "내용을 입력해 주세요"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginEnd="15dp"
                         android:background="#eeeeee"
                         android:backgroundTint="#eeeeee"
+                        android:hint="내용을 입력해 주세요"
                         android:textCursorDrawable="@drawable/text_cursor_cyan"
-                        app:met_baseColor="#222222"
-                        app:met_floatingLabel="highlight"
-                        app:met_maxCharacters="200"
-                        app:met_primaryColor="?colorAccent"
-                        android:layout_marginStart="15dp"
                         android:textSize="14sp"
-                        android:layout_marginEnd="15dp"
-                        app:layout_constraintHorizontal_bias="0.494"
                         app:layout_constraintBottom_toTopOf="@+id/TitleWarning1"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.494"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/TitleBodyText"/>
+                        app:layout_constraintTop_toBottomOf="@+id/TitleBodyText"
+                        app:met_baseColor="#222222"
+                        app:met_floatingLabel="highlight"
+                        android:maxLength="200"
+                        app:met_primaryColor="?colorAccent" />
 
                     <TextView
                         android:id="@+id/TitleWarning1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="0dp"
                         android:layout_marginEnd="15dp"
                         android:layout_marginBottom="5dp"
-                        android:textSize="13dp"
+                        android:visibility="gone"
                         android:text="- 미리보기와 전송을 통하여 확인해주세요."
                         android:textColor="@color/kakaoUnSelect"
+                        android:textSize="13dp"
                         app:layout_constraintBottom_toTopOf="@+id/TitleWarning2"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/contentMaterialEditText" />
@@ -159,10 +163,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
-                        android:visibility="gone"
                         android:layout_marginBottom="5dp"
                         android:text="- 8자 이상으로 입력해 주세요."
                         android:textColor="@color/kakaoUnSelect"
+                        android:visibility="gone"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/TitleWarning1" />
 
@@ -184,7 +188,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginBottom="0dp"
                     android:text="버튼 설정"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@android:color/black"
@@ -197,8 +201,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginStart="15dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="0dp"
                     android:layout_marginEnd="15dp"
+                    android:visibility="invisible"
                     android:background="@android:color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -236,17 +241,18 @@
                         android:layout_marginStart="15dp"
                         android:layout_marginEnd="15dp"
                         app:layout_constraintHorizontal_bias="0.494"
-                        android:hint="버튼명을 적어주세요"
+                        android:hint="버튼명을 적어주세요(최대 8자)"
                         android:textSize="14sp"
+                        app:met_baseColor="#222222"
+                        android:maxLength="8"
+                        app:met_floatingLabel="highlight"
+                        app:met_primaryColor="?colorAccent"
                         android:textCursorDrawable="@drawable/text_cursor_cyan"
                         app:layout_constraintBottom_toTopOf="@+id/buttonLinkMaterialEditText"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/checkboxButton1"
-                        app:met_baseColor="#222222"
                         app:layout_constraintStart_toStartOf="@+id/checkboxButton1"
-                        app:met_floatingLabel="highlight"
-                        app:met_maxCharacters="20"
-                        app:met_primaryColor="?colorAccent" />
+   />
 
 
                     <com.rengwuxian.materialedittext.MaterialEditText
@@ -257,7 +263,7 @@
                         android:layout_marginEnd="15dp"
                         app:layout_constraintHorizontal_bias="0.494"
                         android:textSize="14sp"
-                        android:hint="네이버 검색어를 적어주세요"
+                        android:hint="네이버 검색어 (버튼 클릭 시 이동)"
                         android:textCursorDrawable="@drawable/text_cursor_cyan"
                         app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning1"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -265,18 +271,18 @@
                         app:met_baseColor="#222222"
                         app:layout_constraintStart_toStartOf="@+id/checkboxButton1"
                         app:met_floatingLabel="highlight"
-                        app:met_maxCharacters="20"
                         app:met_primaryColor="?colorAccent" />
 
                     <TextView
                         android:id="@+id/bodyTextWarning1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="0dp"
                         android:layout_marginEnd="15dp"
                         android:layout_marginBottom="5dp"
                         android:text="- 버튼명은 8자 이하를 권장합니다."
                         android:textSize="13dp"
+                        android:visibility="gone"
                         android:textColor="@color/kakaoUnSelect"
                         app:layout_constraintStart_toStartOf="@+id/buttonMaterialEditText"
                         app:layout_constraintTop_toBottomOf="@id/buttonLinkMaterialEditText" />
@@ -291,6 +297,7 @@
                         android:text="- 네이버 검색으로 이동합니다."
                         android:textColor="@color/kakaoUnSelect"
                         android:textSize="13dp"
+                        android:visibility="gone"
                         app:layout_constraintStart_toStartOf="@+id/buttonMaterialEditText"
                         app:layout_constraintTop_toBottomOf="@+id/bodyTextWarning1" />
 

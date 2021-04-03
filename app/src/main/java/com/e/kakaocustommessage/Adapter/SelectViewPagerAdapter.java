@@ -41,8 +41,8 @@ public class SelectViewPagerAdapter extends PagerAdapter {
 //            "주소 템플릿"
 //    };
     private String titles[] ={
-            "텍스트 템플릿",
-            "피드 템플릿"
+            "텍스트 메시지",
+            "피드 메시지"
     };
 
     private String descs[] ={

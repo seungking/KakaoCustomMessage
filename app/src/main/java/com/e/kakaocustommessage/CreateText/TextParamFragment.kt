@@ -46,13 +46,11 @@ class TextParamFragment : Fragment() {
             (activity as CreateTextActivity).button1Checked = checkboxButton1!!.isChecked
 
             if (checkboxButton1.isChecked) {
-//                txtEditTextBodyBody!!.isClickable = true
-//                txtEditTextBodyBody!!.isFocusableInTouchMode = true
-//                txtEditTextBodyBody!!.background = requireContext().getDrawable(R.drawable.cornerswhite)
+                mview?.findViewById<MaterialEditText>(R.id.buttonMaterialEditText)!!.isClickable = true
+                mview?.findViewById<MaterialEditText>(R.id.buttonLinkMaterialEditText)!!.isFocusableInTouchMode = true
             } else {
-//                txtEditTextBodyBody!!.isClickable = false
-//                txtEditTextBodyBody!!.isFocusableInTouchMode = false
-//                txtEditTextBodyBody!!.background = requireContext().getDrawable(R.drawable.cornerclickablefalse)
+                mview?.findViewById<MaterialEditText>(R.id.buttonMaterialEditText)!!.isClickable = true
+                mview?.findViewById<MaterialEditText>(R.id.buttonLinkMaterialEditText)!!.isFocusableInTouchMode = true
             }
         }
 
