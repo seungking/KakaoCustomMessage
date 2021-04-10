@@ -78,4 +78,6 @@ dependencies {
 
     implementation 'com.github.thomhurst:ExpandableHintText:1.0.7'
     implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+
+    implementation 'com.github.zawadz88.materialpopupmenu:material-popup-menu:4.1.0'
 }

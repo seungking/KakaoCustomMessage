@@ -46,7 +46,7 @@ public class SelectViewPagerAdapter extends PagerAdapter {
     };
 
     private String descs[] ={
-            " - 최대 200자의 텍스트\n - 최대 2개의 버튼",
+            " - 최대 200자의 텍스트\n - 최대 1개의 버튼",
             " - 최대 1개의 이미지\n - 제목, 내용 분리 텍스트\n - 최대 2개의 버튼"
     };
 //    private String descs[] ={

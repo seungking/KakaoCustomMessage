@@ -39,6 +39,7 @@ class CreateTextActivity : AppCompatActivity() {
     var buttonMaterialEditText : MaterialEditText? = null
     var buttonLinkMaterialEditText : MaterialEditText? = null
 
+    var btn1linkSitetype : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
