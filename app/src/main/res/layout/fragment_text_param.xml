@@ -40,11 +40,12 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
+                    android:fontFamily="@font/g_medium"
                     android:layout_marginBottom="0dp"
                     android:text="텍스트 설정"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@android:color/black"
-                    android:textStyle="bold"
+                    android:textSize="18dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -127,6 +128,7 @@
                         android:layout_marginEnd="15dp"
                         android:background="#eeeeee"
                         android:backgroundTint="#eeeeee"
+                        android:fontFamily="@font/j_regular"
                         android:hint="내용을 입력해 주세요"
                         android:textCursorDrawable="@drawable/text_cursor_cyan"
                         android:textSize="14sp"
@@ -175,10 +177,131 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/sectionLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorTrans"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <TextView
+                    android:id="@+id/TextLink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="0dp"
+                    android:fontFamily="@font/g_medium"
+                    android:text="메시지 링크"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@android:color/black"
+                    android:textSize="18dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/msgLinkSite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="네이버"
+                    android:drawableLeft="@drawable/ic_baseline_expand_more_24"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/g_medium"
+                    app:layout_constraintTop_toTopOf="@id/TextLink"
+                    app:layout_constraintBottom_toBottomOf="@id/TextLink"
+                    app:layout_constraintStart_toEndOf="@id/TextLink"
+                    android:layout_marginLeft="40dp"
+                    android:background="#00ffffff"
+                    android:shadowColor="#00ffffff"
+                    android:textSize="14dp"
+                    android:textColor="#727272"/>
+
+                <View
+                    android:id="@+id/divTextLink"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="15dp"
+                    android:background="@android:color/black"
+                    android:visibility="invisible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/TextLink" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/sectionLinkBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divTextLink">
+
+                    <TextView
+                        android:id="@+id/LinkBodyText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/g_medium"
+                        android:padding="5dp"
+                        android:text="링크"
+                        android:textColor="@android:color/black"
+                        android:textSize="15dp"
+                        app:layout_constraintBottom_toTopOf="@+id/contentMaterialEditTextLink"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/validateTxtLinkBody"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="25dp"
+                        android:text="카카오톡 메시지 클릭시 이동하는 링크입니다."
+                        android:textColor="@android:color/black"
+                        android:textSize="12dp"
+                        android:fontFamily="@font/j_regular"
+                        android:visibility="visible"
+                        app:layout_constraintBottom_toBottomOf="@+id/LinkBodyText"
+                        app:layout_constraintStart_toEndOf="@+id/LinkBodyText"
+                        app:layout_constraintTop_toTopOf="@+id/LinkBodyText" />
+
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/contentMaterialEditTextLink"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:fontFamily="@font/j_regular"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginTop="5dp"
+                        android:background="#eeeeee"
+                        android:backgroundTint="#eeeeee"
+                        android:hint="검색어 (미입력시 구글 스토어로 이동)"
+                        android:textCursorDrawable="@drawable/text_cursor_cyan"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.494"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/validateTxtLinkBody"
+                        app:met_baseColor="#222222"
+                        app:met_floatingLabel="highlight"
+                        android:maxLength="200"
+                        app:met_primaryColor="?colorAccent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/sectionButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:background="@color/colorTrans">
 
                 <TextView
@@ -189,10 +312,11 @@
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
                     android:layout_marginBottom="0dp"
+                    android:fontFamily="@font/g_medium"
                     android:text="버튼 설정"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@android:color/black"
-                    android:textStyle="bold"
+                    android:textSize="18dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -241,13 +365,14 @@
                         android:text="네이버"
                         android:drawableLeft="@drawable/ic_baseline_expand_more_24"
                         android:drawablePadding="10dp"
+                        android:fontFamily="@font/g_medium"
                         app:layout_constraintTop_toTopOf="@id/checkboxButton1"
                         app:layout_constraintBottom_toBottomOf="@id/checkboxButton1"
                         app:layout_constraintStart_toEndOf="@id/checkboxButton1"
                         android:layout_marginLeft="40dp"
                         android:background="#00ffffff"
                         android:shadowColor="#00ffffff"
-                        android:textSize="16dp"
+                        android:textSize="14dp"
                         android:textColor="#727272"/>
 
 
@@ -260,6 +385,7 @@
                         app:layout_constraintHorizontal_bias="0.494"
                         android:hint="버튼명을 적어주세요(최대 8자)"
                         android:textSize="14sp"
+                        android:fontFamily="@font/j_regular"
                         app:met_baseColor="#222222"
                         android:maxLength="8"
                         app:met_floatingLabel="highlight"
@@ -277,10 +403,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
+                        android:fontFamily="@font/j_regular"
                         android:layout_marginEnd="15dp"
                         app:layout_constraintHorizontal_bias="0.494"
                         android:textSize="14sp"
-                        android:hint="네이버 검색어 (버튼 클릭 시 이동)"
+                        android:hint="검색어 (버튼 클릭 시 이동)"
                         android:textCursorDrawable="@drawable/text_cursor_cyan"
                         app:layout_constraintBottom_toTopOf="@+id/bodyTextWarning1"
                         app:layout_constraintEnd_toEndOf="parent"

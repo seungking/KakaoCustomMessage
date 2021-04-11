@@ -20,6 +20,7 @@ import com.e.kakaocustommessage.Helper
 import com.e.kakaocustommessage.R
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.InterstitialAd
 import com.google.android.gms.ads.MobileAds
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
@@ -27,6 +28,7 @@ import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.ktx.storage
 import com.kakao.sdk.talk.TalkApiClient
 import com.kakao.sdk.template.model.*
+import com.rengwuxian.materialedittext.MaterialEditText
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_create_text.*
 import java.io.ByteArrayOutputStream
@@ -50,6 +52,7 @@ class CreateFeedActivity : AppCompatActivity() {
     var imageBitmap : Bitmap? = null
     var imageURL : Uri? = null
     lateinit var mAdView : AdView
+    private var mInterstitialAd: InterstitialAd? = null
 
     var storageRef : StorageReference? = null
     var imagesRef: StorageReference? = null
@@ -61,6 +64,12 @@ class CreateFeedActivity : AppCompatActivity() {
     var screenLoading : View? = null
 
     var tempKey = Helper().uniqueID
+
+    var btn1linkSitetype : Int = 0
+    var btn2linkSitetype : Int = 0
+    var msglinkSitetype : Int = 0
+
+    var contentMaterialEditTextLink : MaterialEditText? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         window.setFlags(
@@ -93,6 +102,12 @@ class CreateFeedActivity : AppCompatActivity() {
         mAdView = findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)
+
+        //전면광고
+        mInterstitialAd = InterstitialAd(this)
+        mInterstitialAd!!.setAdUnitId("ca-app-pub-3940256099942544/1033173712")
+        mInterstitialAd!!.loadAd(AdRequest.Builder().build())
+        //
 
         fragmentManager = supportFragmentManager
         val fragmentTransaction: FragmentTransaction = fragmentManager!!.beginTransaction()
@@ -219,6 +234,40 @@ class CreateFeedActivity : AppCompatActivity() {
 
     fun sendMessage(){
 
+
+        val linkSite : String = when(msglinkSitetype){
+            0 -> "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query="
+            1 -> "https://www.google.com/search?q="
+            2 -> "https://search.daum.net/search?q="
+            3 -> "https://map.naver.com/v5/search/"
+            4 -> "https://www.google.co.kr/maps/place/"
+            else -> "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query="
+        }
+
+        var link : String = "https://play.google.com/store/apps/details?id=com.e.kakaocustommessage"
+        if (contentMaterialEditTextLink!!.text!!.length > 0) {
+            link = linkSite + contentMaterialEditTextLink!!.text
+        }
+
+        val webSite1 : String = when(btn1linkSitetype){
+            0 -> "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query="
+            1 -> "https://www.google.com/search?q="
+            2 -> "https://search.daum.net/search?q="
+            3 -> "https://map.naver.com/v5/search/"
+            4 -> "https://www.google.co.kr/maps/place/"
+            else -> "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query="
+        }
+
+        val webSite2 : String = when(btn2linkSitetype){
+            0 -> "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query="
+            1 -> "https://www.google.com/search?q="
+            2 -> "https://search.daum.net/search?q="
+            3 -> "https://map.naver.com/v5/search/"
+            4 -> "https://www.google.co.kr/maps/place/"
+            else -> "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query="
+        }
+
+
         var defaultFeed : FeedTemplate? = null
 
 
@@ -229,23 +278,23 @@ class CreateFeedActivity : AppCompatActivity() {
                     description = text,
                     imageUrl = stringUri,
                     link = Link(
-                        webUrl = "https://play.google.com/store/apps/details?id=com.e.namematching",
-                        mobileWebUrl = "https://play.google.com/store/apps/details?id=com.e.namematching"
+                        webUrl =  link,
+                        mobileWebUrl =link
                     ),
                 ),
                 buttons = listOf(
                     Button(
                         button1link,
                         Link(
-                            webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button1linkLink",
-                            mobileWebUrl = "https://m.search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button1linkLink"
+                            webUrl = webSite1 + button1linkLink,
+                            mobileWebUrl = webSite1 + button1linkLink
                         )
                     ),
                     Button(
                         button2link,
                         Link(
-                            webUrl = "https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button2linkLink",
-                            mobileWebUrl = "https://m.search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=$button2linkLink"
+                            webUrl = webSite2 + button2linkLink,
+                            mobileWebUrl = webSite2 + button2linkLink
                         )
                     )
                 )
@@ -259,6 +308,11 @@ class CreateFeedActivity : AppCompatActivity() {
                 Log.e("log1", "나에게 보내기 실패", error)
                 Toasty.error(this, "나에게 보내기 실패").show()
             } else {
+                if (mInterstitialAd!!.isLoaded) {
+                    mInterstitialAd!!.show()
+                } else {
+                    Log.d("TAG", "The interstitial wasn't loaded yet.")
+                }
                 Log.i("log1", "나에게 보내기 성공")
 //                imagesRef!!.delete()
                 Toasty.success(this, "나에게 보내기 성공").show()

@@ -4,4 +4,6 @@
     <string name="kakao_native_appkey">09e3d1820f567497aa373758a4bf09ed</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="storeLink">"https://play.google.com/store/apps/details?id=com.e.namematching"</string>
 </resources>

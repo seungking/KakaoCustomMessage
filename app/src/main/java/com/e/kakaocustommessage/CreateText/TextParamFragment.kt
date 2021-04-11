@@ -43,6 +43,9 @@ class TextParamFragment : Fragment() {
         (activity as CreateTextActivity).contentMaterialEditText = mview?.findViewById<MaterialEditText>(
             R.id.contentMaterialEditText
         )
+        (activity as CreateTextActivity).contentMaterialEditTextLink = mview?.findViewById<MaterialEditText>(
+            R.id.contentMaterialEditTextLink
+        )
         (activity as CreateTextActivity).buttonMaterialEditText = mview?.findViewById<MaterialEditText>(
             R.id.buttonMaterialEditText
         )
@@ -116,6 +119,60 @@ class TextParamFragment : Fragment() {
             }
 
             popupMenu.show(mview!!.context, btn1linkSite)
+        }
+
+        val msglinkSite = mview?.findViewById<TextView>(R.id.msgLinkSite)
+        msglinkSite?.setOnClickListener {
+
+            val popupMenu = popupMenu {
+                section {
+                    item {
+                        label = "네이버"
+                        icon = R.drawable.abc_ic_menu_copy_mtrl_am_alpha //optional
+                        callback = { //optional
+                            msglinkSite.text = "네이버"
+                            (activity as CreateTextActivity).msglinkSitetype = 0
+                        }
+                    }
+                    item {
+                        label = "구글"
+                        iconDrawable = ContextCompat.getDrawable(
+                            mview!!.context,
+                            R.drawable.abc_ic_menu_paste_mtrl_am_alpha
+                        ) //optional
+                        callback = { //optional
+                            msglinkSite.text = "구글"
+                            (activity as CreateTextActivity).msglinkSitetype = 1
+                        }
+                    }
+                    item {
+                        label = "다음"
+                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
+                        callback = {
+                            msglinkSite.text = "다음"
+                            (activity as CreateTextActivity).msglinkSitetype = 2
+                        }
+                    }
+                    item {
+                        label = "네이버 지도"
+                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
+                        callback = {
+                            msglinkSite.text = "네이버 지도"
+                            (activity as CreateTextActivity).msglinkSitetype = 3
+                        }
+                    }
+                    item {
+                        label = "구글 지도"
+                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
+                        callback = {
+                            msglinkSite.text = "구글 지도"
+                            (activity as CreateTextActivity).msglinkSitetype = 4
+                        }
+                    }
+                }
+            }
+
+            popupMenu.show(mview!!.context, msglinkSite)
         }
 
         return mview

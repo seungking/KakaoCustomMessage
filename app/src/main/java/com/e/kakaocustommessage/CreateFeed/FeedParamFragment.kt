@@ -17,10 +17,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.CheckBox
-import android.widget.EditText
-import android.widget.ImageView
+import android.widget.*
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.browser.customtabs.CustomTabsClient.getPackageName
@@ -30,7 +27,9 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import com.e.kakaocustommessage.CreateText.CreateTextActivity
 import com.e.kakaocustommessage.R
+import com.github.zawadz88.materialpopupmenu.popupMenu
 import com.rengwuxian.materialedittext.MaterialEditText
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.fragment_feed_param.*
@@ -73,6 +72,7 @@ class FeedParamFragment : Fragment() {
         photoImgRemoveBtn?.setOnClickListener {
             (activity as CreateFeedActivity).imageBitmap = null
             (activity as CreateFeedActivity).imageURL = null
+            (activity as CreateFeedActivity).stringUri = ""
 
             photoImg?.visibility = View.GONE
             photoImgRemoveBtn.visibility = View.GONE
@@ -89,6 +89,10 @@ class FeedParamFragment : Fragment() {
         selectPhoto?.setOnClickListener {
             dispatchTakePictureIntent()
         }
+
+        (activity as CreateFeedActivity).contentMaterialEditTextLink = mview?.findViewById<MaterialEditText>(
+            R.id.contentMaterialEditTextLink
+        )
 
         val txtEditTitleBody = mview?.findViewById<MaterialEditText>(R.id.txtEditTitleBody)
         txtEditTitleBody?.addTextChangedListener {
@@ -172,6 +176,168 @@ class FeedParamFragment : Fragment() {
 
         }
 
+
+        val btn1linkSite = mview?.findViewById<TextView>(R.id.btn1LinkSite)
+        btn1linkSite?.setOnClickListener {
+
+            val popupMenu = popupMenu {
+                section {
+                    item {
+                        label = "네이버"
+                        icon = R.drawable.abc_ic_menu_copy_mtrl_am_alpha //optional
+                        callback = { //optional
+                            btn1linkSite.text = "네이버"
+                            (activity as CreateFeedActivity).btn1linkSitetype = 0
+                        }
+                    }
+                    item {
+                        label = "구글"
+                        iconDrawable = ContextCompat.getDrawable(
+                            mview!!.context,
+                            R.drawable.abc_ic_menu_paste_mtrl_am_alpha
+                        ) //optional
+                        callback = { //optional
+                            btn1linkSite.text = "구글"
+                            (activity as CreateFeedActivity).btn1linkSitetype = 1
+                        }
+                    }
+                    item {
+                        label = "다음"
+                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
+                        callback = {
+                            btn1linkSite.text = "다음"
+                            (activity as CreateFeedActivity).btn1linkSitetype = 2
+                        }
+                    }
+                    item {
+                        label = "네이버 지도"
+                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
+                        callback = {
+                            btn1linkSite.text = "네이버 지도"
+                            (activity as CreateFeedActivity).btn1linkSitetype = 3
+                        }
+                    }
+                    item {
+                        label = "구글 지도"
+                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
+                        callback = {
+                            btn1linkSite.text = "구글 지도"
+                            (activity as CreateFeedActivity).btn1linkSitetype = 4
+                        }
+                    }
+                }
+            }
+
+            popupMenu.show(mview!!.context, btn1linkSite)
+        }
+
+        val btn2linkSite = mview?.findViewById<TextView>(R.id.btn2LinkSite)
+        btn2linkSite?.setOnClickListener {
+
+            val popupMenu = popupMenu {
+                section {
+                    item {
+                        label = "네이버"
+                        icon = R.drawable.abc_ic_menu_copy_mtrl_am_alpha //optional
+                        callback = { //optional
+                            btn2linkSite.text = "네이버"
+                            (activity as CreateFeedActivity).btn2linkSitetype = 0
+                        }
+                    }
+                    item {
+                        label = "구글"
+                        iconDrawable = ContextCompat.getDrawable(
+                            mview!!.context,
+                            R.drawable.abc_ic_menu_paste_mtrl_am_alpha
+                        ) //optional
+                        callback = { //optional
+                            btn2linkSite.text = "구글"
+                            (activity as CreateFeedActivity).btn2linkSitetype = 1
+                        }
+                    }
+                    item {
+                        label = "다음"
+                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
+                        callback = {
+                            btn2linkSite.text = "다음"
+                            (activity as CreateFeedActivity).btn2linkSitetype = 2
+                        }
+                    }
+                    item {
+                        label = "네이버 지도"
+                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
+                        callback = {
+                            btn2linkSite.text = "네이버 지도"
+                            (activity as CreateFeedActivity).btn2linkSitetype = 3
+                        }
+                    }
+                    item {
+                        label = "구글 지도"
+                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
+                        callback = {
+                            btn2linkSite.text = "구글 지도"
+                            (activity as CreateFeedActivity).btn2linkSitetype = 4
+                        }
+                    }
+                }
+            }
+
+            popupMenu.show(mview!!.context, btn2linkSite)
+        }
+
+        val msglinkSite = mview?.findViewById<TextView>(R.id.msgLinkSite)
+        msglinkSite?.setOnClickListener {
+
+            val popupMenu = popupMenu {
+                section {
+                    item {
+                        label = "네이버"
+                        icon = R.drawable.abc_ic_menu_copy_mtrl_am_alpha //optional
+                        callback = { //optional
+                            msglinkSite.text = "네이버"
+                            (activity as CreateFeedActivity).msglinkSitetype = 0
+                        }
+                    }
+                    item {
+                        label = "구글"
+                        iconDrawable = ContextCompat.getDrawable(
+                            mview!!.context,
+                            R.drawable.abc_ic_menu_paste_mtrl_am_alpha
+                        ) //optional
+                        callback = { //optional
+                            msglinkSite.text = "구글"
+                            (activity as CreateFeedActivity).msglinkSitetype = 1
+                        }
+                    }
+                    item {
+                        label = "다음"
+                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
+                        callback = {
+                            msglinkSite.text = "다음"
+                            (activity as CreateFeedActivity).msglinkSitetype = 2
+                        }
+                    }
+                    item {
+                        label = "네이버 지도"
+                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
+                        callback = {
+                            msglinkSite.text = "네이버 지도"
+                            (activity as CreateFeedActivity).msglinkSitetype = 3
+                        }
+                    }
+                    item {
+                        label = "구글 지도"
+                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
+                        callback = {
+                            msglinkSite.text = "구글 지도"
+                            (activity as CreateFeedActivity).msglinkSitetype = 4
+                        }
+                    }
+                }
+            }
+
+            popupMenu.show(mview!!.context, msglinkSite)
+        }
 
         return mview
     }
