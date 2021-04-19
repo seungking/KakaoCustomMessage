@@ -184,7 +184,6 @@ class FeedParamFragment : Fragment() {
                 section {
                     item {
                         label = "네이버"
-                        icon = R.drawable.abc_ic_menu_copy_mtrl_am_alpha //optional
                         callback = { //optional
                             btn1linkSite.text = "네이버"
                             (activity as CreateFeedActivity).btn1linkSitetype = 0
@@ -192,10 +191,6 @@ class FeedParamFragment : Fragment() {
                     }
                     item {
                         label = "구글"
-                        iconDrawable = ContextCompat.getDrawable(
-                            mview!!.context,
-                            R.drawable.abc_ic_menu_paste_mtrl_am_alpha
-                        ) //optional
                         callback = { //optional
                             btn1linkSite.text = "구글"
                             (activity as CreateFeedActivity).btn1linkSitetype = 1
@@ -203,7 +198,6 @@ class FeedParamFragment : Fragment() {
                     }
                     item {
                         label = "다음"
-                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
                         callback = {
                             btn1linkSite.text = "다음"
                             (activity as CreateFeedActivity).btn1linkSitetype = 2
@@ -211,7 +205,6 @@ class FeedParamFragment : Fragment() {
                     }
                     item {
                         label = "네이버 지도"
-                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
                         callback = {
                             btn1linkSite.text = "네이버 지도"
                             (activity as CreateFeedActivity).btn1linkSitetype = 3
@@ -219,7 +212,6 @@ class FeedParamFragment : Fragment() {
                     }
                     item {
                         label = "구글 지도"
-                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
                         callback = {
                             btn1linkSite.text = "구글 지도"
                             (activity as CreateFeedActivity).btn1linkSitetype = 4
@@ -238,7 +230,6 @@ class FeedParamFragment : Fragment() {
                 section {
                     item {
                         label = "네이버"
-                        icon = R.drawable.abc_ic_menu_copy_mtrl_am_alpha //optional
                         callback = { //optional
                             btn2linkSite.text = "네이버"
                             (activity as CreateFeedActivity).btn2linkSitetype = 0
@@ -246,10 +237,6 @@ class FeedParamFragment : Fragment() {
                     }
                     item {
                         label = "구글"
-                        iconDrawable = ContextCompat.getDrawable(
-                            mview!!.context,
-                            R.drawable.abc_ic_menu_paste_mtrl_am_alpha
-                        ) //optional
                         callback = { //optional
                             btn2linkSite.text = "구글"
                             (activity as CreateFeedActivity).btn2linkSitetype = 1
@@ -257,7 +244,6 @@ class FeedParamFragment : Fragment() {
                     }
                     item {
                         label = "다음"
-                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
                         callback = {
                             btn2linkSite.text = "다음"
                             (activity as CreateFeedActivity).btn2linkSitetype = 2
@@ -265,7 +251,6 @@ class FeedParamFragment : Fragment() {
                     }
                     item {
                         label = "네이버 지도"
-                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
                         callback = {
                             btn2linkSite.text = "네이버 지도"
                             (activity as CreateFeedActivity).btn2linkSitetype = 3
@@ -273,7 +258,6 @@ class FeedParamFragment : Fragment() {
                     }
                     item {
                         label = "구글 지도"
-                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
                         callback = {
                             btn2linkSite.text = "구글 지도"
                             (activity as CreateFeedActivity).btn2linkSitetype = 4
@@ -292,7 +276,6 @@ class FeedParamFragment : Fragment() {
                 section {
                     item {
                         label = "네이버"
-                        icon = R.drawable.abc_ic_menu_copy_mtrl_am_alpha //optional
                         callback = { //optional
                             msglinkSite.text = "네이버"
                             (activity as CreateFeedActivity).msglinkSitetype = 0
@@ -300,10 +283,6 @@ class FeedParamFragment : Fragment() {
                     }
                     item {
                         label = "구글"
-                        iconDrawable = ContextCompat.getDrawable(
-                            mview!!.context,
-                            R.drawable.abc_ic_menu_paste_mtrl_am_alpha
-                        ) //optional
                         callback = { //optional
                             msglinkSite.text = "구글"
                             (activity as CreateFeedActivity).msglinkSitetype = 1
@@ -311,7 +290,6 @@ class FeedParamFragment : Fragment() {
                     }
                     item {
                         label = "다음"
-                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
                         callback = {
                             msglinkSite.text = "다음"
                             (activity as CreateFeedActivity).msglinkSitetype = 2
@@ -319,7 +297,6 @@ class FeedParamFragment : Fragment() {
                     }
                     item {
                         label = "네이버 지도"
-                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
                         callback = {
                             msglinkSite.text = "네이버 지도"
                             (activity as CreateFeedActivity).msglinkSitetype = 3
@@ -327,7 +304,6 @@ class FeedParamFragment : Fragment() {
                     }
                     item {
                         label = "구글 지도"
-                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
                         callback = {
                             msglinkSite.text = "구글 지도"
                             (activity as CreateFeedActivity).msglinkSitetype = 4

@@ -105,7 +105,7 @@ class CreateFeedActivity : AppCompatActivity() {
 
         //전면광고
         mInterstitialAd = InterstitialAd(this)
-        mInterstitialAd!!.setAdUnitId("ca-app-pub-3940256099942544/1033173712")
+        mInterstitialAd!!.setAdUnitId("ca-app-pub-1992325656759505/1131222800")
         mInterstitialAd!!.loadAd(AdRequest.Builder().build())
         //
 

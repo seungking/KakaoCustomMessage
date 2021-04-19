@@ -69,7 +69,7 @@ public class SelectViewPagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         inflater = (LayoutInflater)context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-        View v = inflater.inflate(R.layout.onboard_view_pager,container,false);
+        View v = inflater.inflate(R.layout.select_view_pager,container,false);
 
         ImageView imageView = v.findViewById(R.id.imgViewPager);
         TextView txtTitle = v.findViewById(R.id.txtTitleViewPager);

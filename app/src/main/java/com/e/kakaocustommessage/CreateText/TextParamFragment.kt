@@ -74,7 +74,6 @@ class TextParamFragment : Fragment() {
                 section {
                     item {
                         label = "네이버"
-                        icon = R.drawable.abc_ic_menu_copy_mtrl_am_alpha //optional
                         callback = { //optional
                             btn1linkSite.text = "네이버"
                             (activity as CreateTextActivity).btn1linkSitetype = 0
@@ -82,10 +81,6 @@ class TextParamFragment : Fragment() {
                     }
                     item {
                         label = "구글"
-                        iconDrawable = ContextCompat.getDrawable(
-                            mview!!.context,
-                            R.drawable.abc_ic_menu_paste_mtrl_am_alpha
-                        ) //optional
                         callback = { //optional
                             btn1linkSite.text = "구글"
                             (activity as CreateTextActivity).btn1linkSitetype = 1
@@ -93,7 +88,6 @@ class TextParamFragment : Fragment() {
                     }
                     item {
                         label = "다음"
-                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
                         callback = {
                             btn1linkSite.text = "다음"
                             (activity as CreateTextActivity).btn1linkSitetype = 2
@@ -101,7 +95,6 @@ class TextParamFragment : Fragment() {
                     }
                     item {
                         label = "네이버 지도"
-                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
                         callback = {
                             btn1linkSite.text = "네이버 지도"
                             (activity as CreateTextActivity).btn1linkSitetype = 3
@@ -109,7 +102,6 @@ class TextParamFragment : Fragment() {
                     }
                     item {
                         label = "구글 지도"
-                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
                         callback = {
                             btn1linkSite.text = "구글 지도"
                             (activity as CreateTextActivity).btn1linkSitetype = 4
@@ -128,7 +120,6 @@ class TextParamFragment : Fragment() {
                 section {
                     item {
                         label = "네이버"
-                        icon = R.drawable.abc_ic_menu_copy_mtrl_am_alpha //optional
                         callback = { //optional
                             msglinkSite.text = "네이버"
                             (activity as CreateTextActivity).msglinkSitetype = 0
@@ -136,10 +127,6 @@ class TextParamFragment : Fragment() {
                     }
                     item {
                         label = "구글"
-                        iconDrawable = ContextCompat.getDrawable(
-                            mview!!.context,
-                            R.drawable.abc_ic_menu_paste_mtrl_am_alpha
-                        ) //optional
                         callback = { //optional
                             msglinkSite.text = "구글"
                             (activity as CreateTextActivity).msglinkSitetype = 1
@@ -147,7 +134,6 @@ class TextParamFragment : Fragment() {
                     }
                     item {
                         label = "다음"
-                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
                         callback = {
                             msglinkSite.text = "다음"
                             (activity as CreateTextActivity).msglinkSitetype = 2
@@ -155,7 +141,6 @@ class TextParamFragment : Fragment() {
                     }
                     item {
                         label = "네이버 지도"
-                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
                         callback = {
                             msglinkSite.text = "네이버 지도"
                             (activity as CreateTextActivity).msglinkSitetype = 3
@@ -163,7 +148,6 @@ class TextParamFragment : Fragment() {
                     }
                     item {
                         label = "구글 지도"
-                        icon = R.drawable.abc_ic_menu_selectall_mtrl_alpha //optional
                         callback = {
                             msglinkSite.text = "구글 지도"
                             (activity as CreateTextActivity).msglinkSitetype = 4

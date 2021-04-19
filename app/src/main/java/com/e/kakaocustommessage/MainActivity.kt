@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity(), BillingProcessor.IBillingHandler {
 
         bp = BillingProcessor(
             this,
-            "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAi0gSORlN3EIvPBLy6qgsB7eb7XDy8DArzxrOinJobfRF0/dByC/S+yL3k4HjvVcE+DWxJdRBkZfGZB6uOqG9yJ19Yn4VfJV7IK61Fs44TjiTqyD/Ammb8lc9arTjdMbeuR/qdicZes6CZsqC53k4gvEwdmI8QlvtX6ctECXzHDuZX99mwwk7nAuvKxVFpywDQyIIbjI4ME7fyMhwQ+QsZVmez8pt5C72zBB5C5PBI2zc+nvM0CChM+1WGVYwp0ky92ozu706c+oZQG+VOQYScBIjXEWaYNE0ufBTK5gZj+KkZ2GNrr5JpR0t095P0g251N0ZHe8IRys+pXCHC/etpwIDAQAB",
+            "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0Susq9pniZ2eQ5m4T/rcFdmoJn4DeA2/wlXHoPCjnXRRpsbTzvufTHJi1oEqLgpVKHADXhIrfHuIvFZOL0sjbwW5IKOEg+cZAoOvOaKXGYoQ1YA+wnmePV+ldJztNB49MY44BGdogGcu+U/dTpygG7oksPEpw/PAijUd4d95C41nWUXRW9cDD/XQQM5euEZ6ubOmElGaJrHxphzcLtLoJZZy/h/3kPErfhYIKJTFq5+SbroQ4F26oyFl5cP6oyCr5N4vBPp1QTDNb91X/x+46N1QFZtkMF3b5amLh+b1ngj4jCkFEbLA0r0wkIaklznSahY4ioeXNbhwBrmaeE0RfQIDAQAB",
             this
         )
 
@@ -45,7 +45,8 @@ class MainActivity : AppCompatActivity(), BillingProcessor.IBillingHandler {
         }
 
         donationLayout.setOnClickListener {
-            bp!!.purchase(this, "donation")
+//            bp!!.purchase(this, "donation")
+            Toast.makeText(this,"준비중 입니다!", Toast.LENGTH_SHORT).show()
         }
     }
 

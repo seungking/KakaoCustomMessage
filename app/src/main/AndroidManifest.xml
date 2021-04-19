@@ -29,7 +29,7 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".CreateLocation.CreateLocationActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".LoginActivity"
+        <activity android:name=".MainActivity"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".SelectActivity"
@@ -38,7 +38,7 @@
             android:name=".OnBoardActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -63,7 +63,7 @@
         <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+            android:value="ca-app-pub-1992325656759505~9584427891" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

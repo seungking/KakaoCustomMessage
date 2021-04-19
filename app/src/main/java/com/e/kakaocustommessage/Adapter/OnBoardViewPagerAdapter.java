@@ -24,24 +24,24 @@ public class OnBoardViewPagerAdapter extends PagerAdapter {
 
     //설정 값들 선언
     private int images[] ={
-            R.drawable.logo,
-            R.drawable.logo2,
-            R.drawable.logo,
+            R.drawable.coach1,
+            R.drawable.coach3,
+            R.drawable.coach2,
             R.drawable.logotxt
     };
 
     private String titles[] ={
-            "주의사항",
-            "사용 방법1",
-            "사용 방법2",
-            "이렇게 보내집니다"
+            "커스텀 메시지",
+            "메시지 설정",
+            "나에게 보내기",
+            ""
     };
 
     private String descs[] ={
-            "앱의 절전 모드를 꺼주세요. 정상 작동이 불가능할 수 있습니다. \n 앱을 완전히 끄지 말아주세요. 서비스 이용에 제한됩니다. :(",
-            "오른쪽 상단의 메세지 추가 아이콘을 클릭하고 친구 목록 중 보낼 친구를 선택해주세요 :)",
-            "예약할 날짜, 시간을 선택하고 예약 메세지를 입력해주세요 :)",
-            "일단 잡숴봐~"
+            "피드 메시지, 텍스트 메시지를 이용하여\n나만의 카카오톡 메시지를 만들어보세요.\n",
+            "메시지를 직접 설정해보세요.\n링크 사이트 : 네이버, 카카오, 구글, 네이버지도, 구글지도",
+            "나에게 보내는 메시지로 전송됩니다.\n메시지를 복사하여 원하는곳에 보내세요.",
+            "지금 만들어보세요."
     };
 
     @Override
