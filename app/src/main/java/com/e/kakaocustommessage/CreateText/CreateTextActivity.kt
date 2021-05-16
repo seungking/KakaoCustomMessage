@@ -47,6 +47,8 @@ class CreateTextActivity : AppCompatActivity() {
     var btn1linkSitetype : Int = 0
     var msglinkSitetype : Int = 0
 
+    var frag_type = 1
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -94,17 +96,21 @@ class CreateTextActivity : AppCompatActivity() {
             toPreviewFragment.setTextColor(ContextCompat.getColor(this, R.color.kakaoUnSelect))
 
             val fragment = fragmentManager!!.findFragmentByTag(TextParamFragment::class.java.getSimpleName())
-            if (fragment != null) {
-                fragmentManager!!.beginTransaction().remove(
-                    fragmentManager!!.findFragmentByTag(
-                        TextPreviewFragment::class.java.getSimpleName()
-                    )!!
-                ).commit()
-                fragmentManager!!.beginTransaction().show(
-                    fragmentManager!!.findFragmentByTag(
-                        TextParamFragment::class.java.getSimpleName()
-                    )!!
-                ).commit()
+            if ( frag_type != 1 ) {
+                if (fragment != null) {
+                    fragmentManager!!.beginTransaction().remove(
+                        fragmentManager!!.findFragmentByTag(
+                            TextPreviewFragment::class.java.getSimpleName()
+                        )!!
+                    ).commit()
+                    fragmentManager!!.beginTransaction().show(
+                        fragmentManager!!.findFragmentByTag(
+                            TextParamFragment::class.java.getSimpleName()
+                        )!!
+                    ).commit()
+
+                    frag_type = 1
+                }
             }
         }
 
@@ -118,18 +124,22 @@ class CreateTextActivity : AppCompatActivity() {
                     TextParamFragment::class.java.getSimpleName()
                 )!!
             ).commit()
-            if (fragment != null)
-                fragmentManager!!.beginTransaction().show(
-                    fragmentManager!!.findFragmentByTag(
-                        TextPreviewFragment::class.java.getSimpleName()
-                    )!!
-                ).commit()
-             else
-                fragmentManager!!.beginTransaction().add(
-                    R.id.createActivityFrame,
-                    TextPreviewFragment(),
-                    TextPreviewFragment::class.java.simpleName
-                ).commit()
+            if ( frag_type != 2 ) {
+                if (fragment != null)
+                    fragmentManager!!.beginTransaction().show(
+                        fragmentManager!!.findFragmentByTag(
+                            TextPreviewFragment::class.java.getSimpleName()
+                        )!!
+                    ).commit()
+                else
+                    fragmentManager!!.beginTransaction().add(
+                        R.id.createActivityFrame,
+                        TextPreviewFragment(),
+                        TextPreviewFragment::class.java.simpleName
+                    ).commit()
+
+                frag_type = 2
+            }
         }
 
 

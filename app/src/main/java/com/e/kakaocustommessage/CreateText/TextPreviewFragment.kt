@@ -30,6 +30,7 @@ class TextPreviewFragment : Fragment() {
 
         if((activity as CreateTextActivity).button1Checked) {
             button1.visibility = View.VISIBLE
+            button1.text = (activity as CreateTextActivity).buttonMaterialEditText!!.text
         }
         else {
             button1.visibility = View.GONE

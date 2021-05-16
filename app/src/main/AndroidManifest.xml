@@ -57,8 +57,14 @@
                 <data
                     android:host="oauth"
                     android:scheme="kakao09e3d1820f567497aa373758a4bf09ed" />
+
+
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="09e3d1820f567497aa373758a4bf09ed" /> <!-- 네이티브 앱 키 설정 -->
 
         <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data

@@ -2,9 +2,12 @@ package com.e.kakaocustommessage
 
 import android.content.Intent
 import android.content.SharedPreferences
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
 import android.preference.PreferenceManager
+import android.util.Base64
 import android.util.Log
 import android.view.View
 import android.view.WindowManager
@@ -13,19 +16,19 @@ import androidx.appcompat.app.AppCompatActivity
 import com.airbnb.lottie.LottieAnimationView
 import com.kakao.sdk.auth.LoginClient
 import com.kakao.sdk.auth.model.OAuthToken
-import com.kakao.sdk.common.util.Utility
-import com.kakao.sdk.talk.TalkApiClient
-import com.kakao.sdk.template.model.Content
-import com.kakao.sdk.template.model.FeedTemplate
-import com.kakao.sdk.template.model.Link
-import com.kakao.sdk.template.model.Social
 import com.kakao.sdk.user.UserApiClient
 import es.dmoral.toasty.Toasty
 import kotlinx.android.synthetic.main.activity_login.*
+import java.security.MessageDigest
+import java.security.NoSuchAlgorithmException
+
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
@@ -36,6 +39,8 @@ class LoginActivity : AppCompatActivity() {
 
         val pref : SharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 
+        getHashKey()
+
         Handler().postDelayed(Runnable {
             animationView.pauseAnimation()
             UserApiClient.instance.me { user, error ->
@@ -45,32 +50,39 @@ class LoginActivity : AppCompatActivity() {
                     animationView.visibility = View.INVISIBLE
                     loginBtn.visibility = View.VISIBLE
                     loginTxt.visibility = View.VISIBLE
-                }
-                else if (user != null) {
-                    Log.i("kylog", "사용자 정보 요청 성공" +
-                            "\n회원번호: ${user.id}" +
-                            "\n이메일: ${user.kakaoAccount?.email}" +
-                            "\n닉네임: ${user.kakaoAccount?.profile?.nickname}" +
-                            "\n프로필사진: ${user.kakaoAccount?.profile?.thumbnailImageUrl}")
+                } else if (user != null) {
+                    Log.i(
+                        "kylog", "사용자 정보 요청 성공" +
+                                "\n회원번호: ${user.id}" +
+                                "\n이메일: ${user.kakaoAccount?.email}" +
+                                "\n닉네임: ${user.kakaoAccount?.profile?.nickname}" +
+                                "\n프로필사진: ${user.kakaoAccount?.profile?.thumbnailImageUrl}"
+                    )
 
                     Toasty.success(this, "카카오톡 로그인 성공", Toast.LENGTH_SHORT).show()
-                    if(pref.getBoolean("isFirstTime",false))
-                        startActivity(Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
-                    else{
+                    if (pref.getBoolean("isFirstTime", false))
+                        startActivity(
+                            Intent(
+                                this,
+                                MainActivity::class.java
+                            ).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                        )
+                    else {
                         startActivity(Intent(this, OnBoardActivity::class.java))
-                        pref.edit().putBoolean("isFirstTime",true).commit();
+                        pref.edit().putBoolean("isFirstTime", true).commit();
                     }
                     finish()
                     overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left)
                 }
             }
 
-        },1800)
+        }, 1800)
 
         // 로그인 공통 callback 구성
         val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
             if (error != null) {
                 Log.e("kylog", "로그인 실패", error)
+                Toasty.warning(this, "카카오톡 로그인 상태를 확인해주세요.", Toast.LENGTH_LONG).show()
             }
             else if (token != null) {
                 Log.i("kylog", "로그인 성공 ${token.accessToken}")
@@ -80,18 +92,25 @@ class LoginActivity : AppCompatActivity() {
                         Log.e("kylog", "토큰 정보 보기 실패", error)
                     }
                     else if (tokenInfo != null) {
-                        Log.i("kylog", "토큰 정보 보기 성공" +
-                                "\n회원번호: ${tokenInfo.id}" +
-                                "\n만료시간: ${tokenInfo.expiresIn} 초")
+                        Log.i(
+                            "kylog", "토큰 정보 보기 성공" +
+                                    "\n회원번호: ${tokenInfo.id}" +
+                                    "\n만료시간: ${tokenInfo.expiresIn} 초"
+                        )
                     }
                 }
                 Toasty.success(this, "카카오톡 로그인 성공", Toast.LENGTH_SHORT).show()
 
-                if(pref.getBoolean("isFirstTime",false))
-                    startActivity(Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
+                if(pref.getBoolean("isFirstTime", false))
+                    startActivity(
+                        Intent(
+                            this,
+                            MainActivity::class.java
+                        ).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+                    )
                 else{
                     startActivity(Intent(this, OnBoardActivity::class.java))
-                    pref.edit().putBoolean("isFirstTime",true).commit();
+                    pref.edit().putBoolean("isFirstTime", true).commit();
                 }
                 finish()
                 overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left)
@@ -107,4 +126,24 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun getHashKey() {
+        var packageInfo: PackageInfo? = null
+        try {
+            packageInfo = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
+        } catch (e: PackageManager.NameNotFoundException) {
+            e.printStackTrace()
+        }
+        if (packageInfo == null) Log.e("KeyHash", "KeyHash:null")
+        for (signature in packageInfo!!.signatures) {
+            try {
+                val md = MessageDigest.getInstance("SHA")
+                md.update(signature.toByteArray())
+                Log.d("KeyHash", Base64.encodeToString(md.digest(), Base64.DEFAULT))
+            } catch (e: NoSuchAlgorithmException) {
+                Log.e("KeyHash", "Unable to get MessageDigest. signature=$signature", e)
+            }
+        }
+    }
+
 }

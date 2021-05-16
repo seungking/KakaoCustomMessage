@@ -71,6 +71,8 @@ class CreateFeedActivity : AppCompatActivity() {
 
     var contentMaterialEditTextLink : MaterialEditText? = null
 
+    var frag_type = 1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -190,17 +192,21 @@ class CreateFeedActivity : AppCompatActivity() {
             toPreviewFragment.setTextColor(ContextCompat.getColor(this, R.color.kakaoUnSelect))
 
             val fragment = fragmentManager!!.findFragmentByTag(FeedParamFragment::class.java.getSimpleName())
-            if (fragment != null) {
-                fragmentManager!!.beginTransaction().remove(
-                    fragmentManager!!.findFragmentByTag(
-                        FeedPreviewFragment::class.java.getSimpleName()
-                    )!!
-                ).commit()
-                fragmentManager!!.beginTransaction().show(
-                    fragmentManager!!.findFragmentByTag(
-                        FeedParamFragment::class.java.getSimpleName()
-                    )!!
-                ).commit()
+            if ( frag_type != 1 ){
+                if (fragment != null) {
+                    fragmentManager!!.beginTransaction().remove(
+                        fragmentManager!!.findFragmentByTag(
+                            FeedPreviewFragment::class.java.getSimpleName()
+                        )!!
+                    ).commit()
+                    fragmentManager!!.beginTransaction().show(
+                        fragmentManager!!.findFragmentByTag(
+                            FeedParamFragment::class.java.getSimpleName()
+                        )!!
+                    ).commit()
+
+                    frag_type = 1
+                }
             }
         }
 
@@ -214,18 +220,22 @@ class CreateFeedActivity : AppCompatActivity() {
                     FeedParamFragment::class.java.getSimpleName()
                 )!!
             ).commit()
-            if (fragment != null)
-                fragmentManager!!.beginTransaction().show(
-                    fragmentManager!!.findFragmentByTag(
-                        FeedPreviewFragment::class.java.getSimpleName()
-                    )!!
-                ).commit()
-            else
-                fragmentManager!!.beginTransaction().add(
-                    R.id.createActivityFrame,
-                    FeedPreviewFragment(),
-                    FeedPreviewFragment::class.java.simpleName
-                ).commit()
+            if ( frag_type != 2 ) {
+                if (fragment != null)
+                    fragmentManager!!.beginTransaction().show(
+                        fragmentManager!!.findFragmentByTag(
+                            FeedPreviewFragment::class.java.getSimpleName()
+                        )!!
+                    ).commit()
+                else
+                    fragmentManager!!.beginTransaction().add(
+                        R.id.createActivityFrame,
+                        FeedPreviewFragment(),
+                        FeedPreviewFragment::class.java.simpleName
+                    ).commit()
+
+                frag_type = 2
+            }
         }
 
 

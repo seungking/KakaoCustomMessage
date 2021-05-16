@@ -10,6 +10,8 @@ import java.util.Random;
 
 public class Helper extends AppCompatActivity {
 
+
+
     private Uri getUriFromFilePath(String filePath){
         long photoId;
         Uri photoUri = MediaStore.Images.Media.getContentUri("external");
